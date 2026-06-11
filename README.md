@@ -4,8 +4,6 @@ A utility-first CSS framework with a **radically simpler** configuration system.
 One flat preset file in, one CSS file out compiled by a single Rust binary.
 No JavaScript config, no `extend` merge magic, no plugin system for the 90% case.
 
-> Full rationale and internals: [DESIGN.md](DESIGN.md).
-
 ```toml
 # preset.toml - this is the whole config
 [colors]

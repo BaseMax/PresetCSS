@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Theme — PresetCSS example</title>
+  <!--
+    cd examples/dark-theme && presetcss build
+    Writes dist/style.css from preset.toml.
+  -->
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body class="dark-layout">
+
+  <!-- ===== HEADER ===== -->
+  <header style="border-bottom: 1px solid #334155; padding: 0.875rem 1.5rem; position: sticky; top: 0; background: rgba(15,23,42,0.9); backdrop-filter: blur(8px); z-index: 10;">
+    <div class="container flex items-center justify-between">
+      <div class="flex items-center" style="gap: 0.625rem;">
+        <div class="bg-primary" style="width: 1.75rem; height: 1.75rem; border-radius: 0.375rem; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem; color: white;">P</div>
+        <span class="font-bold text-text" style="font-size: 1rem;">PresetCSS</span>
+        <span class="glow-badge" style="font-size: 0.65rem;">dark-theme</span>
+      </div>
+      <nav class="flex items-center" style="gap: 1.5rem;">
+        <a href="#tokens"    style="color: #94a3b8; text-decoration: none; font-size: 0.875rem;">Tokens</a>
+        <a href="#components" style="color: #94a3b8; text-decoration: none; font-size: 0.875rem;">Components</a>
+        <a href="#forms"      style="color: #94a3b8; text-decoration: none; font-size: 0.875rem;">Forms</a>
+        <a href="#" class="dark-btn" style="font-size: 0.8rem;">Get started</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 3rem 1.5rem;">
+
+    <!-- ===== HERO ===== -->
+    <div class="text-center" style="padding: 4rem 0 5rem; max-width: 600px; margin: 0 auto;">
+      <div class="glow-badge" style="margin-bottom: 1.25rem; font-size: 0.75rem;">
+        🌙 Dark-mode preset
+      </div>
+      <h1 class="font-bold text-text" style="font-size: 3rem; line-height: 1.15; margin: 0 0 1.25rem; letter-spacing: -0.03em;">
+        Dark is beautiful<br>when it's intentional.
+      </h1>
+      <p class="text-muted" style="font-size: 1rem; line-height: 1.75; margin: 0 0 2.5rem; max-width: 460px; margin-left: auto; margin-right: auto;">
+        A dark-mode preset for PresetCSS — carefully tuned contrast ratios, a restrained
+        palette, and a purple-tinted primary accent.
+      </p>
+      <div class="flex justify-center" style="gap: 0.875rem;">
+        <a href="#" class="dark-btn">View preset.toml →</a>
+        <a href="#tokens" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.625rem 1.25rem; border: 1.5px solid #334155; border-radius: 0.5rem; color: #f1f5f9; text-decoration: none; font-weight: 600; font-size: 0.875rem;">Explore tokens</a>
+      </div>
+    </div>
+
+    <!-- ===== COLOR TOKENS ===== -->
+    <section id="tokens" style="margin-bottom: 4rem;">
+      <h2 class="font-bold text-text" style="font-size: 1.25rem; margin-bottom: 1.5rem; padding-bottom: 0.625rem; border-bottom: 1px solid #334155;">
+        Color tokens
+      </h2>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.875rem;">
+
+        <div class="dark-card">
+          <div class="bg-primary" style="height: 3.5rem; border-radius: 0.375rem; margin-bottom: 0.75rem;"></div>
+          <p class="text-text" style="font-size: 0.8rem; font-weight: 600; margin: 0 0 0.125rem; font-family: monospace;">primary</p>
+          <p class="text-muted" style="font-size: 0.7rem; margin: 0; font-family: monospace;">#3b82f6</p>
+        </div>
+
+        <div class="dark-card">
+          <div class="bg-primary-glow" style="height: 3.5rem; border-radius: 0.375rem; margin-bottom: 0.75rem;"></div>
+          <p class="text-text" style="font-size: 0.8rem; font-weight: 600; margin: 0 0 0.125rem; font-family: monospace;">primary-glow</p>
+          <p class="text-muted" style="font-size: 0.7rem; margin: 0; font-family: monospace;">#60a5fa</p>
+        </div>
+
+        <div class="dark-card">
+          <div class="bg-accent" style="height: 3.5rem; border-radius: 0.375rem; margin-bottom: 0.75rem;"></div>
+          <p class="text-text" style="font-size: 0.8rem; font-weight: 600; margin: 0 0 0.125rem; font-family: monospace;">accent</p>
+          <p class="text-muted" style="font-size: 0.7rem; margin: 0; font-family: monospace;">#a78bfa</p>
+        </div>
+
+        <div class="dark-card">
+          <div class="bg-surface" style="height: 3.5rem; border-radius: 0.375rem; margin-bottom: 0.75rem; border: 1px solid #334155;"></div>
+          <p class="text-text" style="font-size: 0.8rem; font-weight: 600; margin: 0 0 0.125rem; font-family: monospace;">surface</p>
+          <p class="text-muted" style="font-size: 0.7rem; margin: 0; font-family: monospace;">#1e293b</p>
+        </div>
+
+        <div class="dark-card">
+          <div class="bg-success" style="height: 3.5rem; border-radius: 0.375rem; margin-bottom: 0.75rem;"></div>
+          <p class="text-text" style="font-size: 0.8rem; font-weight: 600; margin: 0 0 0.125rem; font-family: monospace;">success</p>
+          <p class="text-muted" style="font-size: 0.7rem; margin: 0; font-family: monospace;">#34d399</p>
+        </div>
+
+        <div class="dark-card">
+          <div class="bg-warning" style="height: 3.5rem; border-radius: 0.375rem; margin-bottom: 0.75rem;"></div>
+          <p class="text-text" style="font-size: 0.8rem; font-weight: 600; margin: 0 0 0.125rem; font-family: monospace;">warning</p>
+          <p class="text-muted" style="font-size: 0.7rem; margin: 0; font-family: monospace;">#fbbf24</p>
+        </div>
+
+        <div class="dark-card">
+          <div class="bg-danger" style="height: 3.5rem; border-radius: 0.375rem; margin-bottom: 0.75rem;"></div>
+          <p class="text-text" style="font-size: 0.8rem; font-weight: 600; margin: 0 0 0.125rem; font-family: monospace;">danger</p>
+          <p class="text-muted" style="font-size: 0.7rem; margin: 0; font-family: monospace;">#f87171</p>
+        </div>
+
+        <div class="dark-card">
+          <div class="bg-muted" style="height: 3.5rem; border-radius: 0.375rem; margin-bottom: 0.75rem;"></div>
+          <p class="text-text" style="font-size: 0.8rem; font-weight: 600; margin: 0 0 0.125rem; font-family: monospace;">muted</p>
+          <p class="text-muted" style="font-size: 0.7rem; margin: 0; font-family: monospace;">#94a3b8</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== COMPONENTS ===== -->
+    <section id="components" style="margin-bottom: 4rem;">
+      <h2 class="font-bold text-text" style="font-size: 1.25rem; margin-bottom: 1.5rem; padding-bottom: 0.625rem; border-bottom: 1px solid #334155;">
+        Components
+      </h2>
+
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1rem;">
+
+        <!-- Alert variants -->
+        <div class="dark-card">
+          <p class="text-muted" style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 0.875rem; font-weight: 700;">Alert banners</p>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <div style="background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3); border-radius: 0.375rem; padding: 0.625rem 0.875rem; font-size: 0.8rem; color: #60a5fa; display: flex; align-items: center; gap: 0.5rem;">
+              ℹ️ Info — build succeeded in 0.42s
+            </div>
+            <div style="background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.3); border-radius: 0.375rem; padding: 0.625rem 0.875rem; font-size: 0.8rem; color: #34d399; display: flex; align-items: center; gap: 0.5rem;">
+              ✓ Success — preset validated
+            </div>
+            <div style="background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.3); border-radius: 0.375rem; padding: 0.625rem 0.875rem; font-size: 0.8rem; color: #fbbf24; display: flex; align-items: center; gap: 0.5rem;">
+              ⚠ Warning — near-miss: bg-primry
+            </div>
+            <div style="background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.3); border-radius: 0.375rem; padding: 0.625rem 0.875rem; font-size: 0.8rem; color: #f87171; display: flex; align-items: center; gap: 0.5rem;">
+              ✕ Error — unknown table [colour]
+            </div>
+          </div>
+        </div>
+
+        <!-- Badges -->
+        <div class="dark-card">
+          <p class="text-muted" style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 0.875rem; font-weight: 700;">Badges &amp; pills</p>
+          <div class="flex" style="flex-wrap: wrap; gap: 0.5rem;">
+            <span class="glow-badge">active</span>
+            <span style="background: rgba(52,211,153,0.15); color: #34d399; border: 1px solid rgba(52,211,153,0.3); padding: 0.2rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">live</span>
+            <span style="background: rgba(251,191,36,0.15); color: #fbbf24; border: 1px solid rgba(251,191,36,0.3); padding: 0.2rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">beta</span>
+            <span style="background: rgba(248,113,113,0.15); color: #f87171; border: 1px solid rgba(248,113,113,0.3); padding: 0.2rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">deprecated</span>
+            <span style="background: rgba(167,139,250,0.15); color: #a78bfa; border: 1px solid rgba(167,139,250,0.3); padding: 0.2rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">new</span>
+          </div>
+          <p class="text-muted" style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; margin: 1.25rem 0 0.625rem; font-weight: 700;">Keyboard shortcuts</p>
+          <div class="flex" style="flex-wrap: wrap; gap: 0.375rem;">
+            <kbd>⌘ K</kbd>
+            <kbd>Ctrl + S</kbd>
+            <kbd>Esc</kbd>
+            <kbd>Tab</kbd>
+            <kbd>↑</kbd>
+            <kbd>↓</kbd>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Stats row -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.875rem;">
+        <div class="dark-card text-center">
+          <p class="font-bold text-primary-glow" style="font-size: 2rem; margin: 0; letter-spacing: -0.03em;">312</p>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0.25rem 0 0;">classes generated</p>
+        </div>
+        <div class="dark-card text-center">
+          <p class="font-bold text-success" style="font-size: 2rem; margin: 0; letter-spacing: -0.03em;">14KB</p>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0.25rem 0 0;">output size</p>
+        </div>
+        <div class="dark-card text-center">
+          <p class="font-bold text-accent" style="font-size: 2rem; margin: 0; letter-spacing: -0.03em;">0.4s</p>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0.25rem 0 0;">build time</p>
+        </div>
+        <div class="dark-card text-center">
+          <p class="font-bold text-warning" style="font-size: 2rem; margin: 0; letter-spacing: -0.03em;">0</p>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0.25rem 0 0;">dependencies</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FORMS ===== -->
+    <section id="forms">
+      <h2 class="font-bold text-text" style="font-size: 1.25rem; margin-bottom: 1.5rem; padding-bottom: 0.625rem; border-bottom: 1px solid #334155;">
+        Form elements
+      </h2>
+
+      <div class="dark-card" style="max-width: 440px;">
+        <div style="margin-bottom: 1rem;">
+          <label style="display: block; font-size: 0.8rem; font-weight: 600; color: #cbd5e1; margin-bottom: 0.375rem;">API token name</label>
+          <input class="dark-input" type="text" placeholder="my-project-token">
+        </div>
+        <div style="margin-bottom: 1.25rem;">
+          <label style="display: block; font-size: 0.8rem; font-weight: 600; color: #cbd5e1; margin-bottom: 0.375rem;">Expiry</label>
+          <select class="dark-input">
+            <option>30 days</option>
+            <option>90 days</option>
+            <option>1 year</option>
+            <option>No expiry</option>
+          </select>
+        </div>
+        <div class="flex" style="gap: 0.625rem;">
+          <button class="dark-btn cursor-pointer">Generate token</button>
+          <button style="padding: 0.625rem 1.25rem; border: 1.5px solid #334155; border-radius: 0.5rem; background: transparent; color: #94a3b8; font-weight: 600; cursor: pointer; font-size: 0.875rem;">Cancel</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="border-top: 1px solid #334155; padding: 1.5rem 0; margin-top: 4rem; text-align: center;">
+    <span class="text-muted" style="font-size: 0.875rem;">
+      PresetCSS dark-theme example ·
+      <a href="../landing-page/index.html" class="text-primary" style="text-decoration: none;">landing page →</a>
+    </span>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spiced Lentil Soup — Recipe Example</title>
+  <!--
+    cd examples/recipe && presetcss build
+    Writes dist/style.css from preset.toml.
+  -->
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body class="bg-surface text-dark" style="font-family: system-ui, sans-serif; margin: 0;">
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-white" style="border-bottom: 1px solid #e7e5e4; padding: 0.875rem 1.5rem;">
+    <div class="container flex items-center justify-between">
+      <a href="#" class="font-bold text-dark" style="text-decoration: none; font-size: 1.1rem; letter-spacing: -0.01em;">🍳 RecipeBook</a>
+      <nav class="flex items-center" style="gap: 1.5rem;">
+        <a href="#" class="text-muted hover:text-primary" style="text-decoration: none; font-size: 0.875rem;">Recipes</a>
+        <a href="#" class="text-muted hover:text-primary" style="text-decoration: none; font-size: 0.875rem;">Collections</a>
+        <a href="#" class="text-primary font-bold" style="text-decoration: none; font-size: 0.875rem;">Save recipe</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 2.5rem 1.5rem 5rem;">
+
+    <!-- ===== RECIPE HEADER ===== -->
+    <div class="recipe-header">
+
+      <!-- Breadcrumb -->
+      <p class="text-muted" style="font-size: 0.8rem; margin: 0 0 1rem;">
+        <a href="#" class="text-muted hover:text-primary" style="text-decoration: none;">Recipes</a>
+        <span> › </span>
+        <a href="#" class="text-muted hover:text-primary" style="text-decoration: none;">Soups</a>
+        <span> › Spiced Lentil Soup</span>
+      </p>
+
+      <!-- Tags -->
+      <div class="flex" style="gap: 0.5rem; margin-bottom: 0.875rem; flex-wrap: wrap;">
+        <span class="time-badge">🌿 Vegan</span>
+        <span class="time-badge">🥜 Gluten-free</span>
+        <span class="time-badge" style="background: #fef9c3; color: #a16207;">⭐ Editor's pick</span>
+      </div>
+
+      <h1 class="font-bold text-dark" style="font-size: 2.25rem; line-height: 1.15; margin: 0 0 0.75rem; letter-spacing: -0.02em;">
+        Spiced Lentil Soup with Crispy Shallots
+      </h1>
+      <p class="text-muted" style="font-size: 1rem; line-height: 1.7; max-width: 640px; margin: 0 0 1.5rem;">
+        A hearty, warming red lentil soup spiced with cumin and smoked paprika,
+        finished with a drizzle of olive oil and crispy fried shallots.
+        Ready in under 45 minutes.
+      </p>
+
+      <!-- Author + times row -->
+      <div class="flex items-center" style="gap: 1.5rem; flex-wrap: wrap;">
+        <div class="flex items-center" style="gap: 0.5rem;">
+          <div class="bg-primary" style="width: 2rem; height: 2rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: 700;">M</div>
+          <span class="text-muted" style="font-size: 0.85rem;">by <a href="#" class="text-primary" style="text-decoration: none; font-weight: 600;">MAX BASE</a></span>
+        </div>
+        <span class="time-badge">⏱ Prep: 10 min</span>
+        <span class="time-badge">🔥 Cook: 30 min</span>
+        <span class="time-badge">👥 Serves 4</span>
+        <div class="flex items-center" style="gap: 0.25rem; margin-left: auto;">
+          <span style="color: #ea580c; font-size: 1rem;">★★★★★</span>
+          <span class="text-muted" style="font-size: 0.8rem;">(128 reviews)</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ===== HERO IMAGE ===== -->
+    <div class="bg-primary-light" style="border-radius: 0.875rem; height: 18rem; display: flex; align-items: center; justify-content: center; margin-bottom: 2.5rem; font-size: 5rem;">
+      🍲
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start;">
+
+      <!-- ===== MAIN CONTENT ===== -->
+      <div>
+
+        <!-- Nutrition -->
+        <div class="nutrient-grid">
+          <div class="nutrient-item">
+            <p class="font-bold text-primary" style="font-size: 1.25rem; margin: 0;">320</p>
+            <p class="text-muted" style="font-size: 0.75rem; margin: 0;">calories</p>
+          </div>
+          <div class="nutrient-item">
+            <p class="font-bold text-primary" style="font-size: 1.25rem; margin: 0;">18g</p>
+            <p class="text-muted" style="font-size: 0.75rem; margin: 0;">protein</p>
+          </div>
+          <div class="nutrient-item">
+            <p class="font-bold text-primary" style="font-size: 1.25rem; margin: 0;">42g</p>
+            <p class="text-muted" style="font-size: 0.75rem; margin: 0;">carbs</p>
+          </div>
+          <div class="nutrient-item">
+            <p class="font-bold text-primary" style="font-size: 1.25rem; margin: 0;">7g</p>
+            <p class="text-muted" style="font-size: 0.75rem; margin: 0;">fat</p>
+          </div>
+        </div>
+
+        <!-- Instructions -->
+        <h2 class="font-bold text-dark" style="font-size: 1.25rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 2px solid #ffedd5;">
+          Instructions
+        </h2>
+
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div>
+            <p class="font-bold text-dark" style="font-size: 0.9rem; margin: 0 0 0.375rem;">Sauté aromatics</p>
+            <p class="text-muted" style="font-size: 0.875rem; line-height: 1.7; margin: 0;">
+              Heat 2 tablespoons of olive oil in a large pot over medium heat.
+              Add the diced onion and cook for 5 minutes until soft. Add garlic and ginger, cook for 1 more minute.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div>
+            <p class="font-bold text-dark" style="font-size: 0.9rem; margin: 0 0 0.375rem;">Toast spices</p>
+            <p class="text-muted" style="font-size: 0.875rem; line-height: 1.7; margin: 0;">
+              Add cumin, smoked paprika, turmeric, and coriander. Stir for 30 seconds until fragrant.
+              This step is essential — don't skip it.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div>
+            <p class="font-bold text-dark" style="font-size: 0.9rem; margin: 0 0 0.375rem;">Add lentils and broth</p>
+            <p class="text-muted" style="font-size: 0.875rem; line-height: 1.7; margin: 0;">
+              Add rinsed red lentils, diced tomatoes, and vegetable broth. Bring to a boil,
+              then reduce heat and simmer uncovered for 20–25 minutes until lentils are tender.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div>
+            <p class="font-bold text-dark" style="font-size: 0.9rem; margin: 0 0 0.375rem;">Blend and finish</p>
+            <p class="text-muted" style="font-size: 0.875rem; line-height: 1.7; margin: 0;">
+              Use an immersion blender to blend about half the soup for a creamy yet chunky texture.
+              Season with salt and a squeeze of lemon juice.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item" style="margin-bottom: 0;">
+          <div class="step-num">5</div>
+          <div>
+            <p class="font-bold text-dark" style="font-size: 0.9rem; margin: 0 0 0.375rem;">Crispy shallots</p>
+            <p class="text-muted" style="font-size: 0.875rem; line-height: 1.7; margin: 0;">
+              Fry thinly sliced shallots in hot oil until golden. Drain on paper towels.
+              Serve soup hot, topped with crispy shallots, fresh parsley, and a drizzle of chili oil.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tip box -->
+        <div class="tip-box">
+          <p class="font-bold text-primary" style="font-size: 0.8rem; margin: 0 0 0.375rem;">💡 Pro tip</p>
+          <p class="text-muted" style="font-size: 0.85rem; line-height: 1.6; margin: 0;">
+            This soup freezes beautifully for up to 3 months. Make a double batch and freeze in portions for quick weeknight dinners.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- ===== INGREDIENTS ===== -->
+      <div style="position: sticky; top: 5rem;">
+        <div class="bg-white" style="border: 1px solid #e7e5e4; border-radius: 0.75rem; padding: 1.5rem;">
+          <h2 class="font-bold text-dark" style="font-size: 0.95rem; margin: 0 0 1.25rem; padding-bottom: 0.625rem; border-bottom: 1px solid #f5f5f4;">
+            Ingredients <span class="text-muted" style="font-weight: 400;">— serves 4</span>
+          </h2>
+
+          <div class="ingredient-row">
+            <input type="checkbox" style="accent-color: #ea580c; cursor: pointer; width: 1rem; height: 1rem; flex-shrink: 0;">
+            <span class="text-dark" style="font-size: 0.875rem;">2 tbsp olive oil</span>
+          </div>
+          <div class="ingredient-row">
+            <input type="checkbox" style="accent-color: #ea580c; cursor: pointer; width: 1rem; height: 1rem; flex-shrink: 0;">
+            <span class="text-dark" style="font-size: 0.875rem;">1 large onion, diced</span>
+          </div>
+          <div class="ingredient-row">
+            <input type="checkbox" style="accent-color: #ea580c; cursor: pointer; width: 1rem; height: 1rem; flex-shrink: 0;">
+            <span class="text-dark" style="font-size: 0.875rem;">4 garlic cloves, minced</span>
+          </div>
+          <div class="ingredient-row">
+            <input type="checkbox" style="accent-color: #ea580c; cursor: pointer; width: 1rem; height: 1rem; flex-shrink: 0;">
+            <span class="text-dark" style="font-size: 0.875rem;">1 tbsp fresh ginger</span>
+          </div>
+          <div class="ingredient-row">
+            <input type="checkbox" style="accent-color: #ea580c; cursor: pointer; width: 1rem; height: 1rem; flex-shrink: 0;">
+            <span class="text-dark" style="font-size: 0.875rem;">2 tsp ground cumin</span>
+          </div>
+          <div class="ingredient-row">
+            <input type="checkbox" style="accent-color: #ea580c; cursor: pointer; width: 1rem; height: 1rem; flex-shrink: 0;">
+            <span class="text-dark" style="font-size: 0.875rem;">1 tsp smoked paprika</span>
+          </div>
+          <div class="ingredient-row">
+            <input type="checkbox" style="accent-color: #ea580c; cursor: pointer; width: 1rem; height: 1rem; flex-shrink: 0;">
+            <span class="text-dark" style="font-size: 0.875rem;">½ tsp turmeric</span>
+          </div>
+          <div class="ingredient-row">
+            <input type="checkbox" style="accent-color: #ea580c; cursor: pointer; width: 1rem; height: 1rem; flex-shrink: 0;">
+            <span class="text-dark" style="font-size: 0.875rem;">300g red lentils, rinsed</span>
+          </div>
+          <div class="ingredient-row">
+            <input type="checkbox" style="accent-color: #ea580c; cursor: pointer; width: 1rem; height: 1rem; flex-shrink: 0;">
+            <span class="text-dark" style="font-size: 0.875rem;">400g canned diced tomatoes</span>
+          </div>
+          <div class="ingredient-row">
+            <input type="checkbox" style="accent-color: #ea580c; cursor: pointer; width: 1rem; height: 1rem; flex-shrink: 0;">
+            <span class="text-dark" style="font-size: 0.875rem;">1.2L vegetable broth</span>
+          </div>
+          <div class="ingredient-row">
+            <input type="checkbox" style="accent-color: #ea580c; cursor: pointer; width: 1rem; height: 1rem; flex-shrink: 0;">
+            <span class="text-dark" style="font-size: 0.875rem;">Juice of 1 lemon</span>
+          </div>
+          <div class="ingredient-row" style="border-bottom: none;">
+            <input type="checkbox" style="accent-color: #ea580c; cursor: pointer; width: 1rem; height: 1rem; flex-shrink: 0;">
+            <span class="text-dark" style="font-size: 0.875rem;">2 large shallots, thinly sliced</span>
+          </div>
+
+          <button class="bg-primary cursor-pointer" style="width: 100%; padding: 0.625rem; color: white; border: none; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600; margin-top: 1rem;">
+            Add all to shopping list
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-white" style="border-top: 1px solid #e7e5e4; padding: 1.5rem 0; text-align: center;">
+    <span class="text-muted" style="font-size: 0.875rem;">
+      PresetCSS recipe example ·
+      <a href="../landing-page/index.html" class="text-primary" style="text-decoration: none;">landing page →</a>
+    </span>
+  </footer>
+
+</body>
+</html>
