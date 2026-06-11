@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PresetCSS Playground - Live TOML → CSS</title>
+  <style>
+    *, ::before, ::after { box-sizing: border-box; margin: 0; }
+
+    :root {
+      --c-bg:      #0f172a;
+      --c-surface: #1e293b;
+      --c-border:  #334155;
+      --c-primary: #3b82f6;
+      --c-green:   #22c55e;
+      --c-red:     #f87171;
+      --c-yellow:  #fbbf24;
+      --c-text:    #e2e8f0;
+      --c-muted:   #94a3b8;
+      --radius:    6px;
+      --font-mono: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, monospace;
+      --font-sans: system-ui, -apple-system, Segoe UI, sans-serif;
+    }
+
+    body {
+      background: var(--c-bg);
+      color: var(--c-text);
+      font-family: var(--font-sans);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.625rem 1.25rem;
+      background: var(--c-surface);
+      border-bottom: 1px solid var(--c-border);
+      flex-shrink: 0;
+    }
+    .logo { color: var(--c-primary); font-weight: 700; font-size: 1rem; text-decoration: none; }
+    .header-sep { color: var(--c-border); }
+    .tag { font-size: 0.7rem; background: var(--c-border); color: var(--c-muted); padding: 0.2em 0.5em; border-radius: 4px; }
+    .header-actions { margin-left: auto; display: flex; align-items: center; gap: 0.625rem; }
+    .btn {
+      font-size: 0.8rem; font-family: var(--font-sans); padding: 0.375rem 0.75rem;
+      border-radius: var(--radius); border: 1px solid var(--c-border);
+      background: transparent; color: var(--c-text); cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .btn:hover { border-color: var(--c-primary); color: var(--c-primary); }
+    .btn-primary { background: var(--c-primary); border-color: var(--c-primary); color: #fff; }
+    .btn-primary:hover { background: #2563eb; border-color: #2563eb; color: #fff; }
+
+    /* ── STATUS ── */
+    #status {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; color: var(--c-muted);
+      padding: 0 1.25rem 0 0;
+    }
+    #status-dot {
+      width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--c-muted);
+      transition: background 0.2s;
+    }
+    #status-dot.ok     { background: var(--c-green); }
+    #status-dot.error  { background: var(--c-red); }
+    #status-dot.busy   { background: var(--c-yellow); animation: pulse 1s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    /* ── MAIN PANES ── */
+    .panes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .pane {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      border-right: 1px solid var(--c-border);
+    }
+    .pane:last-child { border-right: none; }
+
+    .pane-header {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--c-surface);
+      border-bottom: 1px solid var(--c-border);
+      font-size: 0.75rem; color: var(--c-muted);
+      flex-shrink: 0;
+    }
+    .pane-title { font-weight: 600; color: var(--c-text); }
+    .pane-hint  { margin-left: auto; font-size: 0.7rem; }
+
+    textarea, #output {
+      flex: 1;
+      padding: 1rem 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      line-height: 1.7;
+      background: var(--c-bg);
+      color: var(--c-text);
+      border: none;
+      outline: none;
+      resize: none;
+      min-height: 0;
+      overflow-y: auto;
+    }
+    #output {
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    /* ── ERRORS ── */
+    #error-bar {
+      display: none;
+      background: #1a0a0a;
+      border-top: 1px solid #7f1d1d;
+      padding: 0.625rem 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--c-red);
+      white-space: pre-wrap;
+      max-height: 8rem;
+      overflow-y: auto;
+      flex-shrink: 0;
+    }
+    #error-bar.visible { display: block; }
+
+    /* ── STATS BAR ── */
+    #stats-bar {
+      display: flex; gap: 1.5rem; align-items: center;
+      padding: 0.375rem 1.25rem;
+      background: var(--c-surface);
+      border-top: 1px solid var(--c-border);
+      font-size: 0.7rem; color: var(--c-muted);
+      flex-shrink: 0;
+    }
+    #stats-bar span b { color: var(--c-text); }
+
+    /* ── LOADING OVERLAY ── */
+    #loading {
+      position: fixed; inset: 0;
+      background: rgba(15,23,42,0.85);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 1rem; z-index: 100;
+      font-size: 0.875rem; color: var(--c-muted);
+    }
+    #loading .spinner {
+      width: 2rem; height: 2rem;
+      border: 3px solid var(--c-border);
+      border-top-color: var(--c-primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── COPY TOAST ── */
+    #toast {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      background: var(--c-green); color: #fff;
+      padding: 0.5rem 1rem; border-radius: var(--radius);
+      font-size: 0.8rem; font-weight: 600;
+      opacity: 0; transform: translateY(0.5rem);
+      transition: opacity 0.2s, transform 0.2s;
+      pointer-events: none;
+    }
+    #toast.show { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .panes { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+      .pane { border-right: none; border-bottom: 1px solid var(--c-border); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading overlay while WASM initialises -->
+  <div id="loading">
+    <div class="spinner"></div>
+    <span>Loading PresetCSS compiler…</span>
+  </div>
+
+  <div id="toast">✓ Copied!</div>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <a class="logo" href="../examples/landing-page/index.html">PresetCSS</a>
+    <span class="header-sep">|</span>
+    <span class="tag">Playground</span>
+    <span class="tag">WASM</span>
+
+    <div id="status">
+      <div id="status-dot" class="busy"></div>
+      <span id="status-text">Loading…</span>
+    </div>
+
+    <div class="header-actions">
+      <button class="btn" id="btn-reset" title="Restore the default preset">Reset to defaults</button>
+      <button class="btn" id="btn-minify" title="Toggle minify output">Minify: off</button>
+      <button class="btn btn-primary" id="btn-copy">Copy CSS</button>
+    </div>
+  </header>
+
+  <!-- ── PANES ── -->
+  <div class="panes">
+    <!-- LEFT: TOML editor -->
+    <div class="pane">
+      <div class="pane-header">
+        <span class="pane-title">preset.toml</span>
+        <span style="font-size:0.65rem; background:#0f172a; border:1px solid var(--c-border); padding:0.15em 0.5em; border-radius:4px; color:var(--c-primary);">TOML</span>
+        <span class="pane-hint">Edit and the CSS updates live →</span>
+      </div>
+      <textarea id="editor" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"
+        placeholder="Loading default preset…"></textarea>
+    </div>
+
+    <!-- RIGHT: CSS output -->
+    <div class="pane" style="border-right:none;">
+      <div class="pane-header">
+        <span class="pane-title">Generated CSS</span>
+        <span style="font-size:0.65rem; background:#0f172a; border:1px solid var(--c-border); padding:0.15em 0.5em; border-radius:4px; color:var(--c-green);">CSS</span>
+        <span class="pane-hint" id="rule-count"></span>
+      </div>
+      <div id="output" aria-live="polite" aria-label="Generated CSS"></div>
+    </div>
+  </div>
+
+  <!-- ── ERROR BAR ── -->
+  <div id="error-bar" role="alert"></div>
+
+  <!-- ── STATS BAR ── -->
+  <div id="stats-bar">
+    <span><b id="stat-rules">-</b> rules</span>
+    <span><b id="stat-bytes">-</b> bytes</span>
+    <span><b id="stat-ms">-</b> ms compile</span>
+    <span style="margin-left:auto; color:#475569;">
+      Powered by <a href="https://github.com/BaseMax/PresetCSS" style="color:var(--c-primary);">PresetCSS</a> v0.1.0 compiled to WebAssembly
+    </span>
+  </div>
+
+  <!--
+    ════════════════════════════════════════════════════════════
+    HOW TO BUILD THE WASM PACKAGE
+    ════════════════════════════════════════════════════════════
+    From the repo root, run ONE of:
+
+      # Windows PowerShell:
+      wasm-pack build crates/presetcss-wasm --target web --out-dir ../../playground/pkg
+
+      # bash / macOS / Linux:
+      wasm-pack build crates/presetcss-wasm --target web --out-dir ../../playground/pkg
+
+    Then serve this directory with any HTTP server (needed for ES-module CORS):
+
+      python -m http.server 8080
+      # or: npx serve .
+
+    Open http://localhost:8080 in your browser.
+    ════════════════════════════════════════════════════════════
+  -->
+  <script type="module">
+    let wasmCompile, wasmValidate, wasmDefault;
+    try {
+      const mod = await import('./pkg/presetcss_wasm.js');
+      await mod.default();
+      wasmCompile  = mod.compile;
+      wasmValidate = mod.validate_preset;
+      wasmDefault  = mod.default_preset;
+    } catch (e) {
+      document.getElementById('loading').innerHTML = `
+        <div style="text-align:center; max-width:480px; color:#f87171;">
+          <p style="font-size:1.1rem; font-weight:700; margin-bottom:1rem;">
+            ⚠ WASM package not built yet
+          </p>
+          <p style="font-size:0.85rem; line-height:1.75; color:#94a3b8;">
+            Run the following from the repo root, then serve this directory:
+          </p>
+          <pre style="margin-top:1rem; background:#1e293b; color:#e2e8f0;
+               padding:1rem; border-radius:6px; font-size:0.8rem; text-align:left;">wasm-pack build crates/presetcss-wasm \\
+  --target web \\
+  --out-dir ../../playground/pkg
+
+# then:
+python -m http.server 8080</pre>
+        </div>`;
+      throw e;
+    }
+
+    let minify = false;
+    let debounceTimer = null;
+    const DEBOUNCE_MS = 280;
+
+    const editor     = document.getElementById('editor');
+    const output     = document.getElementById('output');
+    const errorBar   = document.getElementById('error-bar');
+    const statusDot  = document.getElementById('status-dot');
+    const statusText = document.getElementById('status-text');
+    const statRules  = document.getElementById('stat-rules');
+    const statBytes  = document.getElementById('stat-bytes');
+    const statMs     = document.getElementById('stat-ms');
+    const ruleCount  = document.getElementById('rule-count');
+
+    function setStatus(state, text) {
+      statusDot.className = state;
+      statusText.textContent = text;
+    }
+
+    function countRules(css) {
+      return (css.match(/\{/g) || []).length;
+    }
+
+    function compile() {
+      const src = editor.value;
+      let addMinify = minify
+        ? (src.includes('[options]')
+            ? src.replace(/\[options\]/, '[options]\nminify = true')
+            : '[options]\nminify = true\n\n' + src)
+        : src;
+
+      setStatus('busy', 'Compiling…');
+      const t0 = performance.now();
+      let css, err;
+      try {
+        css = wasmCompile(addMinify);
+        err = null;
+      } catch (e) {
+        css = null;
+        err = String(e);
+      }
+      const ms = (performance.now() - t0).toFixed(1);
+
+      if (css !== null) {
+        output.textContent = css;
+        errorBar.textContent = '';
+        errorBar.classList.remove('visible');
+        const n = countRules(css);
+        const bytes = new TextEncoder().encode(css).length;
+        setStatus('ok', 'OK');
+        statRules.textContent = n;
+        statBytes.textContent = bytes.toLocaleString();
+        statMs.textContent = ms;
+        ruleCount.textContent = `${n} rules`;
+      } else {
+        output.textContent = '';
+        errorBar.textContent = err;
+        errorBar.classList.add('visible');
+        setStatus('error', 'Error');
+        statRules.textContent = '-';
+        statBytes.textContent = '-';
+        statMs.textContent = ms;
+        ruleCount.textContent = '';
+      }
+    }
+
+    function scheduleCompile() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(compile, DEBOUNCE_MS);
+    }
+
+    const defaultSrc = wasmDefault();
+    editor.value = defaultSrc;
+    document.getElementById('loading').style.display = 'none';
+    compile();
+
+    editor.addEventListener('input', scheduleCompile);
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      editor.value = wasmDefault();
+      compile();
+    });
+
+    document.getElementById('btn-minify').addEventListener('click', (e) => {
+      minify = !minify;
+      e.target.textContent = `Minify: ${minify ? 'on' : 'off'}`;
+      e.target.style.borderColor = minify ? 'var(--c-primary)' : '';
+      e.target.style.color = minify ? 'var(--c-primary)' : '';
+      compile();
+    });
+
+    document.getElementById('btn-copy').addEventListener('click', () => {
+      const text = output.textContent;
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 1800);
+      });
+    });
+
+    editor.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        clearTimeout(debounceTimer);
+        compile();
+      }
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        const s = editor.selectionStart, end = editor.selectionEnd;
+        editor.value = editor.value.slice(0, s) + '  ' + editor.value.slice(end);
+        editor.selectionStart = editor.selectionEnd = s + 2;
+        scheduleCompile();
+      }
+    });
+  </script>
+</body>
+</html>
