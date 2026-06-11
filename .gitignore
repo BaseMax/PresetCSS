@@ -1,0 +1,11 @@
+/target
+**/*.rs.bk
+Cargo.lock.orig
+dist/
+
+*.rar
+*.zip
+*.tar.gz
+*.gz
+
+*.exe

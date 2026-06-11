@@ -1,0 +1,18 @@
+[package]
+name = "presetcss-cli"
+description = "PresetCSS command-line interface"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "presetcss"
+path = "src/main.rs"
+
+[dependencies]
+presetcss-core = { path = "../presetcss-core", features = ["scan"] }
+clap = { version = "4", features = ["derive"] }
+notify = "6"
+notify-debouncer-mini = "0.4"
