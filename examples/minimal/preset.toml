@@ -1,0 +1,13 @@
+# Minimal real-world preset. See ../../DESIGN.md for the full format.
+[options]
+output  = "dist/preset.css"
+content = ["src/**/*.{html,jsx,tsx}"]   # enables tree-shaking
+
+[colors]
+primary = "#3b82f6"
+surface = "#f8fafc"
+ink     = "#0f172a"
+
+[breakpoints]
+tablet  = "768px"
+desktop = "1100px"

@@ -1,0 +1,32 @@
+# Notification center / inbox
+[options]
+output = "dist/style.css"
+
+[colors]
+primary        = "#3b82f6"
+primary-light  = "#dbeafe"
+success        = "#16a34a"
+success-light  = "#dcfce7"
+warning        = "#f59e0b"
+warning-light  = "#fef3c7"
+danger         = "#dc2626"
+danger-light   = "#fee2e2"
+info           = "#0ea5e9"
+info-light     = "#e0f2fe"
+dark           = "#0f172a"
+muted          = "#64748b"
+surface        = "#f8fafc"
+white          = "#ffffff"
+border         = "#e2e8f0"
+unread-bg      = "#f0f6ff"
+
+[breakpoints]
+md = "768px"
+
+[utilities]
+container    = "max-width: 720px; margin: 0 auto; padding: 0 1.5rem;"
+notif-item   = "display: flex; gap: 0.875rem; padding: 1rem 1.25rem; border-bottom: 1px solid #f1f5f9; transition: background 0.1s;"
+notif-unread = "display: flex; gap: 0.875rem; padding: 1rem 1.25rem; border-bottom: 1px solid #f1f5f9; background: #f0f6ff;"
+notif-icon   = "width: 2.5rem; height: 2.5rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem;"
+tab-btn      = "padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; border: none; background: transparent; cursor: pointer;"
+tab-active   = "padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; background: #3b82f6; color: white; border: none; cursor: pointer;"

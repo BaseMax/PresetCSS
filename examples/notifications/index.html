@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications — PresetCSS example</title>
+  <!--
+    cd examples/notifications && presetcss build
+    Writes dist/style.css from preset.toml.
+  -->
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body class="bg-surface text-dark" style="font-family: system-ui, sans-serif; margin: 0;">
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-white" style="border-bottom: 1px solid #e2e8f0; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10;">
+    <div class="flex items-center" style="gap: 1rem;">
+      <a href="#" class="font-bold text-dark" style="text-decoration: none; font-size: 0.95rem;">← PresetCSS</a>
+    </div>
+    <div class="flex items-center" style="gap: 0.875rem;">
+      <button style="font-size: 0.8rem; color: #3b82f6; border: none; background: none; cursor: pointer; font-weight: 500;">Mark all read</button>
+      <div class="bg-primary" style="width: 2rem; height: 2rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.7rem; font-weight: 700;">M</div>
+    </div>
+  </header>
+
+  <main style="max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem;">
+
+    <div class="flex items-center justify-between" style="margin-bottom: 1.5rem;">
+      <h1 class="font-bold text-dark" style="font-size: 1.375rem; margin: 0;">Notifications</h1>
+      <span class="bg-primary" style="color: white; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px;">4 new</span>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex" style="gap: 0.25rem; margin-bottom: 1.25rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0;">
+      <button class="tab-active">All</button>
+      <button class="tab-btn">Unread</button>
+      <button class="tab-btn">Builds</button>
+      <button class="tab-btn">Mentions</button>
+    </div>
+
+    <!-- Notifications -->
+    <div class="bg-white" style="border: 1px solid #e2e8f0; border-radius: 0.75rem; overflow: hidden;">
+
+      <!-- Unread: Build success -->
+      <div class="notif-unread">
+        <div class="notif-icon bg-success-light text-success">✓</div>
+        <div style="flex: 1; min-width: 0;">
+          <p style="font-size: 0.875rem; margin: 0 0 0.25rem; line-height: 1.5;">
+            <span class="font-bold text-dark">my-portfolio</span>
+            <span class="text-muted"> build succeeded</span>
+          </p>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0;">312 rules · 14 KB · 2 minutes ago</p>
+        </div>
+        <span class="bg-primary" style="width: 0.5rem; height: 0.5rem; border-radius: 9999px; flex-shrink: 0; margin-top: 0.375rem;"></span>
+      </div>
+
+      <!-- Unread: Mention -->
+      <div class="notif-unread">
+        <div class="notif-icon bg-primary-light text-primary">@</div>
+        <div style="flex: 1; min-width: 0;">
+          <p style="font-size: 0.875rem; margin: 0 0 0.25rem; line-height: 1.5;">
+            <span class="font-bold text-dark">Sara Chen</span>
+            <span class="text-muted"> mentioned you in </span>
+            <span class="font-bold text-dark">shop-ui</span>
+          </p>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0 0 0.375rem;">12 minutes ago</p>
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.375rem; padding: 0.5rem 0.75rem; font-size: 0.8rem; color: #64748b; line-height: 1.5;">
+            "Hey @MAX BASE, should the primary token here be the same as in the docs preset?"
+          </div>
+        </div>
+        <span class="bg-primary" style="width: 0.5rem; height: 0.5rem; border-radius: 9999px; flex-shrink: 0; margin-top: 0.375rem;"></span>
+      </div>
+
+      <!-- Unread: Build error -->
+      <div class="notif-unread">
+        <div class="notif-icon bg-danger-light text-danger">✕</div>
+        <div style="flex: 1; min-width: 0;">
+          <p style="font-size: 0.875rem; margin: 0 0 0.25rem; line-height: 1.5;">
+            <span class="font-bold text-dark">admin-panel</span>
+            <span class="text-muted"> build failed</span>
+          </p>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0 0 0.375rem;">3 hours ago</p>
+          <div class="bg-danger-light" style="border-radius: 0.375rem; padding: 0.5rem 0.75rem; font-size: 0.775rem; line-height: 1.5; font-family: monospace;">
+            <span class="text-danger font-bold">error:</span> preset.toml:7 — unknown table `[colour]`, did you mean `[colors]`?
+          </div>
+        </div>
+        <span class="bg-primary" style="width: 0.5rem; height: 0.5rem; border-radius: 9999px; flex-shrink: 0; margin-top: 0.375rem;"></span>
+      </div>
+
+      <!-- Unread: New team member -->
+      <div class="notif-unread">
+        <div class="notif-icon" style="background: #f3e8ff; color: #7c3aed;">👥</div>
+        <div style="flex: 1; min-width: 0;">
+          <p style="font-size: 0.875rem; margin: 0 0 0.25rem; line-height: 1.5;">
+            <span class="font-bold text-dark">Reza Kim</span>
+            <span class="text-muted"> joined your workspace</span>
+          </p>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0;">Yesterday at 14:32</p>
+        </div>
+        <span class="bg-primary" style="width: 0.5rem; height: 0.5rem; border-radius: 9999px; flex-shrink: 0; margin-top: 0.375rem;"></span>
+      </div>
+
+      <!-- Read: Export -->
+      <div class="notif-item">
+        <div class="notif-icon" style="background: #e0f2fe; color: #0ea5e9;">↓</div>
+        <div style="flex: 1; min-width: 0;">
+          <p style="font-size: 0.875rem; margin: 0 0 0.25rem; line-height: 1.5; color: #64748b;">
+            <span class="font-bold" style="color: #0f172a;">docs-site</span>
+            <span> tokens exported by A. Lee</span>
+          </p>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0;">Yesterday at 10:11 · JSON + CSS vars</p>
+        </div>
+      </div>
+
+      <!-- Read: Build success -->
+      <div class="notif-item" style="border-bottom: none;">
+        <div class="notif-icon bg-success-light text-success">✓</div>
+        <div style="flex: 1; min-width: 0;">
+          <p style="font-size: 0.875rem; margin: 0 0 0.25rem; line-height: 1.5; color: #64748b;">
+            <span class="font-bold" style="color: #0f172a;">docs-site</span>
+            <span> build succeeded</span>
+          </p>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0;">Yesterday at 10:09 · 204 rules · 9 KB</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center" style="margin-top: 1.25rem;">
+      <a href="#" class="text-primary" style="font-size: 0.875rem; text-decoration: none; font-weight: 500;">Load older notifications</a>
+    </div>
+
+  </main>
+
+</body>
+</html>

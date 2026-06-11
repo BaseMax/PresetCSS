@@ -1,0 +1,32 @@
+# E-commerce product listing
+[options]
+output = "dist/style.css"
+
+[colors]
+primary       = "#dc2626"
+primary-dark  = "#b91c1c"
+primary-light = "#fee2e2"
+dark          = "#111827"
+muted         = "#6b7280"
+light         = "#f9fafb"
+white         = "#ffffff"
+success       = "#16a34a"
+success-light = "#dcfce7"
+border        = "#e5e7eb"
+
+[breakpoints]
+md = "768px"
+lg = "1024px"
+
+[variants]
+colors = ["hover"]
+
+[utilities]
+container    = "max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;"
+product-card = "background: white; border: 1px solid #e5e7eb; border-radius: 0.75rem; overflow: hidden; display: flex; flex-direction: column;"
+product-img  = "background: #f9fafb; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 3rem;"
+price-tag    = "font-size: 1.25rem; font-weight: 700; color: #111827;"
+sale-badge   = "display: inline-flex; align-items: center; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; background: #dc2626; color: white;"
+add-to-cart  = "display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; padding: 0.625rem; background: #111827; color: white; border: none; border-radius: 0 0 0.75rem 0.75rem; font-weight: 600; font-size: 0.875rem; cursor: pointer;"
+filter-chip  = "display: inline-flex; align-items: center; padding: 0.35rem 0.875rem; border-radius: 9999px; font-size: 0.8rem; border: 1px solid #e5e7eb; background: white; cursor: pointer;"
+grid-products = "display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;"

@@ -1,0 +1,36 @@
+# Slightly advanced preset: extend, custom utilities, per-group variants.
+[options]
+output  = "public/app.css"
+content = ["templates/**/*.html"]
+minify  = true
+base    = "minimal"            # "minimal" reset | "none" | path to your own file
+prefix  = "u-"                 # all classes become .u-bg-primary etc.
+source_comments = false
+
+[colors]
+primary      = "#3b82f6"
+primary-dark = "#1d4ed8"
+danger       = "#dc2626"
+
+[extend.spacing]               # ADD to the default spacing scale, explicitly
+"18" = "4.5rem"
+hero = "22rem"                 # semantic steps are fine: p-hero, mt-hero
+
+[fonts]
+sans = "Inter, system-ui, sans-serif"
+mono = "JetBrains Mono, monospace"
+
+[breakpoints]
+tablet  = "768px"
+desktop = "1100px"
+wide    = "1400px"
+
+[variants]                     # opt-in, per group - no wasted CSS
+colors    = ["hover", "focus"]
+spacing   = []
+static    = ["responsive"]
+utilities = ["hover", "responsive"]
+
+[utilities]                    # escape hatch: raw CSS, still no JavaScript
+btn  = "padding: 0.5rem 1rem; border-radius: 6px; background: #3b82f6; color: white;"
+card = "background: white; border-radius: 8px; box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);"

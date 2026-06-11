@@ -1,0 +1,28 @@
+# Personal developer portfolio
+[options]
+output = "dist/style.css"
+
+[colors]
+primary      = "#0f172a"
+accent       = "#3b82f6"
+accent-light = "#dbeafe"
+surface      = "#f8fafc"
+white        = "#ffffff"
+muted        = "#64748b"
+green        = "#16a34a"
+green-light  = "#dcfce7"
+
+[breakpoints]
+md = "768px"
+lg = "1024px"
+
+[variants]
+colors = ["hover"]
+
+[utilities]
+container    = "max-width: 1000px; margin: 0 auto; padding: 0 1.5rem;"
+project-card = "background: white; border: 1px solid #e2e8f0; border-radius: 0.75rem; overflow: hidden; padding: 1.5rem;"
+skill-chip   = "display: inline-flex; align-items: center; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; background: #f1f5f9; color: #0f172a;"
+btn-primary  = "display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.625rem 1.25rem; background: #0f172a; color: white; border-radius: 0.5rem; font-weight: 600; text-decoration: none; border: 2px solid #0f172a;"
+btn-outline  = "display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.625rem 1.25rem; background: transparent; color: #0f172a; border-radius: 0.5rem; font-weight: 600; text-decoration: none; border: 2px solid #0f172a;"
+avatar-xl    = "width: 5rem; height: 5rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; flex-shrink: 0;"

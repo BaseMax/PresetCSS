@@ -1,0 +1,39 @@
+# SaaS metrics / analytics dashboard
+[options]
+output = "dist/style.css"
+
+[colors]
+primary       = "#6366f1"
+primary-dark  = "#4f46e5"
+primary-light = "#e0e7ff"
+success       = "#10b981"
+success-light = "#d1fae5"
+warning       = "#f59e0b"
+warning-light = "#fef3c7"
+danger        = "#ef4444"
+danger-light  = "#fee2e2"
+cyan          = "#06b6d4"
+cyan-light    = "#cffafe"
+dark          = "#111827"
+muted         = "#6b7280"
+surface       = "#f9fafb"
+white         = "#ffffff"
+border        = "#e5e7eb"
+
+[breakpoints]
+md = "768px"
+lg = "1024px"
+
+[variants]
+colors = ["hover"]
+
+[utilities]
+container     = "max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;"
+metric-card   = "background: white; border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.625rem;"
+grid-metrics  = "display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;"
+grid-charts   = "display: grid; grid-template-columns: 2fr 1fr; gap: 1.25rem;"
+chart-area    = "background: white; border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 1.5rem;"
+progress-bar  = "height: 0.5rem; border-radius: 9999px; overflow: hidden; background: #f3f4f6;"
+progress-fill = "height: 100%; border-radius: 9999px; transition: width 0.3s;"
+top-row       = "display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 0; border-bottom: 1px solid #f3f4f6; margin-bottom: 0.25rem;"
+comparison    = "display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 4px;"

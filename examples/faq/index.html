@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — PresetCSS example</title>
+  <!--
+    cd examples/faq && presetcss build
+    Writes dist/style.css from preset.toml.
+  -->
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body class="bg-surface text-dark" style="font-family: system-ui, sans-serif; margin: 0;">
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-white" style="border-bottom: 1px solid #e2e8f0; padding: 0.875rem 1.5rem;">
+    <div class="container flex items-center justify-between">
+      <a href="#" class="font-bold text-dark" style="text-decoration: none; font-size: 1.1rem;">PresetCSS</a>
+      <nav class="flex items-center" style="gap: 1.5rem;">
+        <a href="../docs/index.html" class="text-muted hover:text-primary" style="text-decoration: none; font-size: 0.875rem;">Docs</a>
+        <a href="#" class="text-primary font-bold" style="text-decoration: none; font-size: 0.875rem;">FAQ</a>
+        <a href="https://github.com/BaseMax/PresetCSS" class="text-muted hover:text-primary" style="text-decoration: none; font-size: 0.875rem;">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding: 4rem 0 6rem;">
+    <div class="container">
+
+      <!-- Header -->
+      <div class="text-center" style="max-width: 560px; margin: 0 auto 3rem;">
+        <h1 class="font-bold text-dark" style="font-size: 2.25rem; margin-bottom: 0.875rem; letter-spacing: -0.02em;">Frequently asked questions</h1>
+        <p class="text-muted" style="font-size: 0.9375rem; line-height: 1.7; margin-bottom: 1.5rem;">
+          Can't find the answer you need? Open an issue on
+          <a href="https://github.com/BaseMax/PresetCSS" class="text-primary hover:text-primary-dark" style="text-decoration: none; font-weight: 500;">GitHub</a>.
+        </p>
+
+        <!-- Category pills -->
+        <div class="flex justify-center" style="gap: 0.5rem; flex-wrap: wrap;">
+          <button class="category-btn bg-primary-light text-primary">All</button>
+          <button class="category-btn hover:text-dark" style="color: #64748b; background: #f0f9ff; border-color: #e0f2fe;">Getting started</button>
+          <button class="category-btn hover:text-dark" style="color: #64748b; background: #f0f9ff; border-color: #e0f2fe;">Configuration</button>
+          <button class="category-btn hover:text-dark" style="color: #64748b; background: #f0f9ff; border-color: #e0f2fe;">Compare</button>
+        </div>
+      </div>
+
+      <!-- FAQ list -->
+      <div style="max-width: 680px; margin: 0 auto;">
+
+        <!-- Q1 -->
+        <details class="faq-item" open>
+          <summary class="faq-q cursor-pointer" style="list-style: none;">
+            <span>What is PresetCSS?</span>
+            <span class="text-primary" style="font-size: 1.25rem; font-weight: 300; flex-shrink: 0;">−</span>
+          </summary>
+          <div class="faq-a">
+            PresetCSS is a utility CSS generator driven by a single flat TOML file.
+            You declare your design tokens (colors, spacing, fonts, etc.) and get an optimized
+            <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">.css</code> file back.
+            No JavaScript, no plugins, no Node.js runtime required.
+          </div>
+        </details>
+
+        <!-- Q2 -->
+        <details class="faq-item">
+          <summary class="faq-q cursor-pointer" style="list-style: none;">
+            <span>How is this different from Tailwind CSS?</span>
+            <span class="text-muted" style="font-size: 1.25rem; font-weight: 300; flex-shrink: 0;">+</span>
+          </summary>
+          <div class="faq-a">
+            Tailwind uses a <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">tailwind.config.js</code> JavaScript file and relies on PostCSS.
+            PresetCSS uses a plain <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">preset.toml</code> and is a compiled Rust binary.
+            Tailwind has a much larger class vocabulary; PresetCSS is intentionally minimal — you define exactly what you need and nothing else.
+          </div>
+        </details>
+
+        <!-- Q3 -->
+        <details class="faq-item">
+          <summary class="faq-q cursor-pointer" style="list-style: none;">
+            <span>Do I need Rust installed to use PresetCSS?</span>
+            <span class="text-muted" style="font-size: 1.25rem; font-weight: 300; flex-shrink: 0;">+</span>
+          </summary>
+          <div class="faq-a">
+            Only to install via <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">cargo install presetcss</code>.
+            Pre-built binaries for Linux, macOS, and Windows are planned for future releases,
+            which will require no Rust installation. The browser playground works fully offline via WASM.
+          </div>
+        </details>
+
+        <!-- Q4 -->
+        <details class="faq-item">
+          <summary class="faq-q cursor-pointer" style="list-style: none;">
+            <span>What languages / frameworks does it work with?</span>
+            <span class="text-muted" style="font-size: 1.25rem; font-weight: 300; flex-shrink: 0;">+</span>
+          </summary>
+          <div class="faq-a">
+            Any project that can link a <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">.css</code> file.
+            PHP, Ruby, Django, Laravel, plain HTML — it doesn't matter. The only integration point
+            is a <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">&lt;link rel="stylesheet"&gt;</code> tag.
+          </div>
+        </details>
+
+        <!-- Q5 -->
+        <details class="faq-item">
+          <summary class="faq-q cursor-pointer" style="list-style: none;">
+            <span>How does tree-shaking work?</span>
+            <span class="text-muted" style="font-size: 1.25rem; font-weight: 300; flex-shrink: 0;">+</span>
+          </summary>
+          <div class="faq-a">
+            Add a <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">content</code> glob to your preset:
+            <br><br>
+            <code style="background: #0f172a; color: #86efac; display: block; padding: 0.75rem 1rem; border-radius: 0.375rem; font-size: 0.85em;">content = ["src/**/*.html", "templates/**/*.html"]</code>
+            <br>
+            PresetCSS scans those files with an Aho-Corasick automaton and only emits classes that actually appear in the templates. Near-miss typos like <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">bg-primry</code> get a friendly warning.
+          </div>
+        </details>
+
+        <!-- Q6 -->
+        <details class="faq-item">
+          <summary class="faq-q cursor-pointer" style="list-style: none;">
+            <span>Can I use hover, focus, and dark-mode variants?</span>
+            <span class="text-muted" style="font-size: 1.25rem; font-weight: 300; flex-shrink: 0;">+</span>
+          </summary>
+          <div class="faq-a">
+            Yes — via the <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">[variants]</code> section.
+            Variants are opt-in per token group, so you only pay for what you use.
+            Supported variants: <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">hover</code>, <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">focus</code>, <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">focus-visible</code>, <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">active</code>, <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">disabled</code>, <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">dark</code>, <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">responsive</code>, and more.
+          </div>
+        </details>
+
+        <!-- Q7 -->
+        <details class="faq-item" style="margin-bottom: 0;">
+          <summary class="faq-q cursor-pointer" style="list-style: none;">
+            <span>Is there a VS Code extension?</span>
+            <span class="text-muted" style="font-size: 1.25rem; font-weight: 300; flex-shrink: 0;">+</span>
+          </summary>
+          <div class="faq-a">
+            Not yet, but it's on the roadmap. For now, the <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">explain</code> command
+            provides class → CSS rule lookup, and <code style="background: #e0f2fe; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em;">watch</code> gives instant feedback in the browser.
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-white" style="border-top: 1px solid #e2e8f0; padding: 1.5rem 0; text-align: center;">
+    <span class="text-muted" style="font-size: 0.875rem;">
+      PresetCSS FAQ example ·
+      <a href="../landing-page/index.html" class="text-primary" style="text-decoration: none;">landing page →</a>
+    </span>
+  </footer>
+
+</body>
+</html>

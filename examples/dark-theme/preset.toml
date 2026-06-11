@@ -1,0 +1,36 @@
+# Dark UI showcase / dark-mode preset
+[options]
+output = "dist/style.css"
+
+[colors]
+bg           = "#0f172a"
+surface      = "#1e293b"
+surface-2    = "#263548"
+border       = "#334155"
+primary      = "#3b82f6"
+primary-dark = "#2563eb"
+primary-glow = "#60a5fa"
+muted        = "#94a3b8"
+text         = "#f1f5f9"
+text-dim     = "#cbd5e1"
+accent       = "#a78bfa"
+accent-light = "#7c3aed"
+success      = "#34d399"
+warning      = "#fbbf24"
+danger       = "#f87171"
+
+[breakpoints]
+md = "768px"
+lg = "1024px"
+
+[variants]
+colors = ["hover"]
+
+[utilities]
+dark-layout  = "min-height: 100vh; background: #0f172a; color: #f1f5f9; font-family: system-ui, sans-serif;"
+container    = "max-width: 1000px; margin: 0 auto; padding: 0 1.5rem;"
+dark-card    = "background: #1e293b; border: 1px solid #334155; border-radius: 0.75rem; padding: 1.5rem;"
+dark-input   = "width: 100%; padding: 0.625rem 0.875rem; background: #0f172a; border: 1.5px solid #334155; border-radius: 0.5rem; color: #f1f5f9; font-size: 0.875rem; outline: none; box-sizing: border-box;"
+dark-btn     = "display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.625rem 1.25rem; background: #3b82f6; color: white; border: none; border-radius: 0.5rem; font-weight: 600; cursor: pointer; text-decoration: none;"
+glow-badge   = "display: inline-flex; align-items: center; padding: 0.2rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; background: rgba(59,130,246,0.15); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3);"
+kbd          = "display: inline-flex; align-items: center; padding: 0.15rem 0.45rem; border-radius: 4px; font-family: monospace; font-size: 0.7rem; background: #263548; border: 1px solid #475569; color: #cbd5e1;"

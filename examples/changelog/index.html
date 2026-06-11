@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog — PresetCSS</title>
+  <!--
+    cd examples/changelog && presetcss build
+    Writes dist/style.css from preset.toml.
+  -->
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body class="bg-light text-dark" style="font-family: system-ui, sans-serif; margin: 0;">
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-white" style="border-bottom: 1px solid #e5e7eb; padding: 0.875rem 1.5rem;">
+    <div class="container flex items-center justify-between">
+      <a href="#" class="font-bold text-dark" style="text-decoration: none; font-size: 1.1rem;">PresetCSS</a>
+      <nav class="flex items-center" style="gap: 1.25rem;">
+        <a href="../docs/index.html" class="text-muted" style="text-decoration: none; font-size: 0.875rem;">Docs</a>
+        <a href="#" class="font-bold text-primary" style="text-decoration: none; font-size: 0.875rem;">Changelog</a>
+        <a href="https://github.com/BaseMax/PresetCSS" class="text-muted" style="text-decoration: none; font-size: 0.875rem;">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding: 4rem 0 6rem;">
+    <div class="container">
+
+      <h1 class="font-bold text-dark" style="font-size: 2rem; margin-bottom: 0.5rem; letter-spacing: -0.02em;">Changelog</h1>
+      <p class="text-muted" style="font-size: 0.925rem; margin-bottom: 3.5rem; line-height: 1.6;">
+        All notable changes to PresetCSS. Follows
+        <a href="https://semver.org" class="text-primary" style="text-decoration: none;">Semantic Versioning</a>.
+      </p>
+
+      <!-- Entry 1 -->
+      <div class="entry">
+        <div class="entry-date">
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0;">Jun 2026</p>
+        </div>
+        <div class="entry-body">
+          <div style="position: absolute; left: -0.4375rem; top: 0.25rem; width: 0.75rem; height: 0.75rem; border-radius: 9999px; background: #8b5cf6; border: 2px solid white; box-shadow: 0 0 0 2px #e5e7eb;"></div>
+          <div class="flex items-center" style="gap: 0.625rem; margin-bottom: 0.75rem;">
+            <span class="version-badge" style="background: #ede9fe; color: #6d28d9;">v0.1.0</span>
+            <span class="font-bold text-dark" style="font-size: 1.1rem;">Initial release</span>
+          </div>
+          <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 1rem; line-height: 1.6;">
+            First public release of PresetCSS. One flat TOML file → optimized utility CSS.
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <div class="flex items-start" style="gap: 0.625rem;">
+              <span class="change-type bg-success-light text-success">new</span>
+              <span class="text-dark" style="font-size: 0.875rem; line-height: 1.5;">Full parse → resolve → generate → emit pipeline in <code style="background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.85em;">presetcss-core</code></span>
+            </div>
+            <div class="flex items-start" style="gap: 0.625rem;">
+              <span class="change-type bg-success-light text-success">new</span>
+              <span class="text-dark" style="font-size: 0.875rem; line-height: 1.5;">CLI with <code style="background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.85em;">build</code>, <code style="background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.85em;">watch</code>, <code style="background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.85em;">init</code>, <code style="background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.85em;">validate</code>, <code style="background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.85em;">explain</code>, and <code style="background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.85em;">export</code> commands</span>
+            </div>
+            <div class="flex items-start" style="gap: 0.625rem;">
+              <span class="change-type bg-success-light text-success">new</span>
+              <span class="text-dark" style="font-size: 0.875rem; line-height: 1.5;">Token groups: colors, spacing, sizes, fonts, text, radius, shadows, breakpoints</span>
+            </div>
+            <div class="flex items-start" style="gap: 0.625rem;">
+              <span class="change-type bg-success-light text-success">new</span>
+              <span class="text-dark" style="font-size: 0.875rem; line-height: 1.5;">Static utility classes: flex, grid, text alignment, positioning, and more</span>
+            </div>
+            <div class="flex items-start" style="gap: 0.625rem;">
+              <span class="change-type bg-success-light text-success">new</span>
+              <span class="text-dark" style="font-size: 0.875rem; line-height: 1.5;">Per-group variant opt-in via <code style="background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.85em;">[variants]</code></span>
+            </div>
+            <div class="flex items-start" style="gap: 0.625rem;">
+              <span class="change-type bg-success-light text-success">new</span>
+              <span class="text-dark" style="font-size: 0.875rem; line-height: 1.5;">Aho-Corasick content scanning for tree-shaking</span>
+            </div>
+            <div class="flex items-start" style="gap: 0.625rem;">
+              <span class="change-type bg-success-light text-success">new</span>
+              <span class="text-dark" style="font-size: 0.875rem; line-height: 1.5;">WASM playground for browser-based preview</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Entry 2 — RC -->
+      <div class="entry">
+        <div class="entry-date">
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0;">May 2026</p>
+        </div>
+        <div class="entry-body">
+          <div style="position: absolute; left: -0.4375rem; top: 0.25rem; width: 0.75rem; height: 0.75rem; border-radius: 9999px; background: #e5e7eb; border: 2px solid white;"></div>
+          <div class="flex items-center" style="gap: 0.625rem; margin-bottom: 0.75rem;">
+            <span class="version-badge" style="background: #f3f4f6; color: #6b7280;">v0.1.0-rc.2</span>
+            <span class="font-bold text-dark" style="font-size: 1.1rem;">Release candidate 2</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <div class="flex items-start" style="gap: 0.625rem;">
+              <span class="change-type bg-warning-light text-warning">fix</span>
+              <span class="text-dark" style="font-size: 0.875rem; line-height: 1.5;">Fixed class collision detection not triggering on <code style="background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.85em;">[extend.*]</code> tables</span>
+            </div>
+            <div class="flex items-start" style="gap: 0.625rem;">
+              <span class="change-type bg-warning-light text-warning">fix</span>
+              <span class="text-dark" style="font-size: 0.875rem; line-height: 1.5;">CSS escaping for class names containing special characters</span>
+            </div>
+            <div class="flex items-start" style="gap: 0.625rem;">
+              <span class="change-type bg-info-light text-info">change</span>
+              <span class="text-dark" style="font-size: 0.875rem; line-height: 1.5;">Renamed <code style="background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.85em;">output_path</code> option to <code style="background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.85em;">output</code></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Entry 3 — RC1 -->
+      <div class="entry">
+        <div class="entry-date">
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0;">Apr 2026</p>
+        </div>
+        <div class="entry-body">
+          <div style="position: absolute; left: -0.4375rem; top: 0.25rem; width: 0.75rem; height: 0.75rem; border-radius: 9999px; background: #e5e7eb; border: 2px solid white;"></div>
+          <div class="flex items-center" style="gap: 0.625rem; margin-bottom: 0.75rem;">
+            <span class="version-badge" style="background: #f3f4f6; color: #6b7280;">v0.1.0-rc.1</span>
+            <span class="font-bold text-dark" style="font-size: 1.1rem;">Release candidate 1</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <div class="flex items-start" style="gap: 0.625rem;">
+              <span class="change-type bg-success-light text-success">new</span>
+              <span class="text-dark" style="font-size: 0.875rem; line-height: 1.5;">Minification support via <code style="background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.85em;">minify = true</code></span>
+            </div>
+            <div class="flex items-start" style="gap: 0.625rem;">
+              <span class="change-type bg-success-light text-success">new</span>
+              <span class="text-dark" style="font-size: 0.875rem; line-height: 1.5;"><code style="background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.85em;">prefix</code> option — all generated classes get a custom prefix</span>
+            </div>
+            <div class="flex items-start" style="gap: 0.625rem;">
+              <span class="change-type bg-danger-light text-danger">breaking</span>
+              <span class="text-dark" style="font-size: 0.875rem; line-height: 1.5;">Removed <code style="background: #f3f4f6; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.85em;">[options] theme</code> in favour of top-level token tables</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Entry 4 — beta -->
+      <div class="entry" style="margin-bottom: 0;">
+        <div class="entry-date">
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0;">Feb 2026</p>
+        </div>
+        <div class="entry-body" style="border-left-color: #e5e7eb;">
+          <div style="position: absolute; left: -0.4375rem; top: 0.25rem; width: 0.75rem; height: 0.75rem; border-radius: 9999px; background: #e5e7eb; border: 2px solid white;"></div>
+          <div class="flex items-center" style="gap: 0.625rem; margin-bottom: 0.75rem;">
+            <span class="version-badge" style="background: #f3f4f6; color: #9ca3af;">v0.1.0-beta</span>
+            <span class="font-bold text-dark" style="font-size: 1.1rem;">Initial beta</span>
+          </div>
+          <p class="text-muted" style="font-size: 0.875rem; margin: 0; line-height: 1.6;">
+            First internal beta. Core pipeline stable. CLI commands working. Playground prototype complete.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-white" style="border-top: 1px solid #e5e7eb; padding: 1.5rem 0; text-align: center;">
+    <span class="text-muted" style="font-size: 0.875rem;">
+      PresetCSS changelog example ·
+      <a href="../landing-page/index.html" class="text-primary" style="text-decoration: none;">landing page →</a>
+    </span>
+  </footer>
+
+</body>
+</html>

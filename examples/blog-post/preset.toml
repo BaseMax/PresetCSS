@@ -1,0 +1,28 @@
+# Blog article reading page
+[options]
+output = "dist/style.css"
+
+[colors]
+primary       = "#2563eb"
+primary-light = "#dbeafe"
+ink           = "#1e293b"
+muted         = "#64748b"
+surface       = "#f8fafc"
+white         = "#ffffff"
+accent        = "#7c3aed"
+accent-light  = "#f3f0ff"
+border        = "#e2e8f0"
+
+[breakpoints]
+md = "768px"
+lg = "1024px"
+
+[variants]
+colors = ["hover"]
+
+[utilities]
+container   = "max-width: 720px; margin: 0 auto; padding: 0 1.5rem;"
+wide        = "max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;"
+tag         = "display: inline-flex; align-items: center; padding: 0.2rem 0.625rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;"
+author-card = "display: flex; align-items: center; gap: 1rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem;"
+related-card = "background: white; border: 1px solid #e2e8f0; border-radius: 0.625rem; overflow: hidden;"

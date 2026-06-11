@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How PresetCSS Works — Blog Post Example</title>
+  <!--
+    cd examples/blog-post && presetcss build
+    Writes dist/style.css from preset.toml.
+  -->
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body class="bg-surface text-ink" style="font-family: system-ui, sans-serif; margin: 0; line-height: 1.6;">
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-white" style="border-bottom: 1px solid #e2e8f0; padding: 0.875rem 0; position: sticky; top: 0; z-index: 10;">
+    <div class="wide flex items-center justify-between">
+      <a href="#" class="font-bold text-ink" style="text-decoration: none; font-size: 1.125rem;">DevBlog</a>
+      <nav class="flex items-center" style="gap: 1.5rem;">
+        <a href="#" class="text-muted hover:text-primary" style="text-decoration: none; font-size: 0.875rem;">Articles</a>
+        <a href="#" class="text-muted hover:text-primary" style="text-decoration: none; font-size: 0.875rem;">Topics</a>
+        <a href="#" class="text-muted hover:text-primary" style="text-decoration: none; font-size: 0.875rem;">Newsletter</a>
+        <a href="#" class="bg-primary" style="color: white; padding: 0.4rem 0.875rem; border-radius: 0.375rem; text-decoration: none; font-size: 0.875rem; font-weight: 600;">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== ARTICLE ===== -->
+  <article style="padding: 3rem 0 4rem;">
+    <div class="container">
+
+      <!-- Meta -->
+      <div class="flex items-center" style="gap: 0.625rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
+        <span class="tag bg-primary-light text-primary">Tutorial</span>
+        <span class="tag bg-accent-light" style="color: #7c3aed;">CSS</span>
+        <span class="text-muted" style="font-size: 0.8rem;">·</span>
+        <span class="text-muted" style="font-size: 0.8rem;">8 min read</span>
+        <span class="text-muted" style="font-size: 0.8rem;">·</span>
+        <span class="text-muted" style="font-size: 0.8rem;">June 2026</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="font-bold text-ink" style="font-size: 2.25rem; line-height: 1.2; margin: 0 0 1.25rem;">
+        How PresetCSS turns a flat TOML file into optimized utility CSS
+      </h1>
+
+      <!-- Lede -->
+      <p class="text-muted" style="font-size: 1.125rem; line-height: 1.7; margin: 0 0 2rem; max-width: 640px;">
+        A walkthrough of the parse → resolve → generate → emit pipeline —
+        and why choosing TOML over JavaScript was the right call.
+      </p>
+
+      <!-- Author card -->
+      <div class="author-card" style="margin-bottom: 2.5rem;">
+        <div class="bg-primary" style="width: 3rem; height: 3rem; border-radius: 9999px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1rem;">M</div>
+        <div>
+          <p class="font-bold text-ink" style="margin: 0; font-size: 0.9rem;">MAX BASE</p>
+          <p class="text-muted" style="margin: 0; font-size: 0.8rem;">Rust developer · PresetCSS author</p>
+        </div>
+        <div style="margin-left: auto; display: flex; gap: 0.5rem;">
+          <a href="#" class="text-muted hover:text-primary" style="font-size: 0.8rem; text-decoration: none;">GitHub →</a>
+        </div>
+      </div>
+
+      <!-- Hero image placeholder -->
+      <div class="bg-primary-light border" style="border-color: #93c5fd; border-radius: 0.75rem; height: 14rem; display: flex; align-items: center; justify-content: center; margin-bottom: 2.5rem;">
+        <span class="text-primary font-bold" style="font-size: 0.875rem;">Article cover image</span>
+      </div>
+
+      <!-- Body -->
+      <div style="font-size: 1.0625rem; line-height: 1.8; color: #1e293b;">
+
+        <h2 class="font-bold text-ink" style="font-size: 1.375rem; margin: 2rem 0 0.75rem;">Why TOML?</h2>
+        <p style="margin: 0 0 1.25rem;">
+          Most CSS-in-JS solutions and utility frameworks ask you to configure them in JavaScript.
+          That means a build step, a Node runtime, and a config file that can run arbitrary code.
+          PresetCSS chose TOML for a simpler reason: <strong>what you write is exactly what gets generated</strong>.
+        </p>
+        <p style="margin: 0 0 1.25rem;">
+          A flat key-value file maps directly to a flat list of CSS rules. No deep merges, no
+          <code style="background: #f1f5f9; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.9em;">extend</code>
+          vs override ambiguity, no runtime surprises.
+        </p>
+
+        <h2 class="font-bold text-ink" style="font-size: 1.375rem; margin: 2rem 0 0.75rem;">The four stages</h2>
+
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.625rem; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <div class="flex items-center" style="gap: 0.875rem;">
+              <div class="bg-primary" style="width: 1.75rem; height: 1.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;">1</div>
+              <div>
+                <span class="font-bold text-ink" style="font-size: 0.9rem;">Parse</span>
+                <span class="text-muted" style="font-size: 0.85rem; margin-left: 0.5rem;">— TOML → RawPreset struct via serde</span>
+              </div>
+            </div>
+            <div class="flex items-center" style="gap: 0.875rem;">
+              <div class="bg-primary" style="width: 1.75rem; height: 1.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;">2</div>
+              <div>
+                <span class="font-bold text-ink" style="font-size: 0.9rem;">Resolve</span>
+                <span class="text-muted" style="font-size: 0.85rem; margin-left: 0.5rem;">— merge defaults, validate tokens, detect collisions</span>
+              </div>
+            </div>
+            <div class="flex items-center" style="gap: 0.875rem;">
+              <div class="bg-primary" style="width: 1.75rem; height: 1.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;">3</div>
+              <div>
+                <span class="font-bold text-ink" style="font-size: 0.9rem;">Generate</span>
+                <span class="text-muted" style="font-size: 0.85rem; margin-left: 0.5rem;">— Theme → Vec&lt;Rule&gt;, static utilities, variants</span>
+              </div>
+            </div>
+            <div class="flex items-center" style="gap: 0.875rem;">
+              <div class="bg-primary" style="width: 1.75rem; height: 1.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;">4</div>
+              <div>
+                <span class="font-bold text-ink" style="font-size: 0.9rem;">Emit</span>
+                <span class="text-muted" style="font-size: 0.85rem; margin-left: 0.5rem;">— serialize to CSS, optionally minify, tree-shake</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="font-bold text-ink" style="font-size: 1.375rem; margin: 2rem 0 0.75rem;">Tree-shaking with content scanning</h2>
+        <p style="margin: 0 0 1.25rem;">
+          Set <code style="background: #f1f5f9; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.9em;">content = ["src/**/*.html"]</code>
+          and PresetCSS will scan your templates for used class names using the
+          Aho-Corasick algorithm — O(n) in the size of the content, not the number of tokens.
+          Only classes that appear in your templates are written to the output file.
+        </p>
+        <p style="margin: 0 0 1.25rem;">
+          Near-miss detection means if you write <code style="background: #f1f5f9; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.9em;">bg-primry</code>
+          instead of <code style="background: #f1f5f9; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.9em;">bg-primary</code>,
+          you get a warning — not a silent miss.
+        </p>
+
+        <h2 class="font-bold text-ink" style="font-size: 1.375rem; margin: 2rem 0 0.75rem;">Variant opt-in</h2>
+        <p style="margin: 0 0 1.25rem;">
+          Unlike Tailwind (which generates all variants by default and relies on purge),
+          PresetCSS generates <em>zero</em> variant rules unless you opt in via
+          <code style="background: #f1f5f9; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.9em;">[variants]</code>.
+          This keeps the output tiny even without content scanning.
+        </p>
+
+      </div>
+
+      <!-- Tags -->
+      <div class="flex" style="flex-wrap: wrap; gap: 0.5rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+        <span class="tag bg-surface border text-muted">presetcss</span>
+        <span class="tag bg-surface border text-muted">rust</span>
+        <span class="tag bg-surface border text-muted">css</span>
+        <span class="tag bg-surface border text-muted">tooling</span>
+        <span class="tag bg-surface border text-muted">toml</span>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- ===== RELATED POSTS ===== -->
+  <section class="bg-white" style="padding: 3.5rem 0;">
+    <div class="wide">
+      <h2 class="font-bold text-ink" style="font-size: 1.25rem; margin-bottom: 1.5rem;">Related articles</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+
+        <div class="related-card">
+          <div class="bg-primary-light" style="height: 8rem; display: flex; align-items: center; justify-content: center; font-size: 2rem;">🦀</div>
+          <div style="padding: 1rem;">
+            <span class="tag bg-accent-light" style="color: #7c3aed; margin-bottom: 0.625rem; display: inline-flex;">Rust</span>
+            <h3 class="font-bold text-ink" style="font-size: 0.925rem; margin: 0 0 0.375rem; line-height: 1.4;">Writing a zero-copy TOML parser in Rust</h3>
+            <p class="text-muted" style="font-size: 0.8rem; margin: 0;">5 min read · June 2026</p>
+          </div>
+        </div>
+
+        <div class="related-card">
+          <div style="background: #dcfce7; height: 8rem; display: flex; align-items: center; justify-content: center; font-size: 2rem;">⚡</div>
+          <div style="padding: 1rem;">
+            <span class="tag bg-surface border text-muted" style="margin-bottom: 0.625rem; display: inline-flex;">Performance</span>
+            <h3 class="font-bold text-ink" style="font-size: 0.925rem; margin: 0 0 0.375rem; line-height: 1.4;">Aho-Corasick for CSS class scanning — benchmarks</h3>
+            <p class="text-muted" style="font-size: 0.8rem; margin: 0;">7 min read · May 2026</p>
+          </div>
+        </div>
+
+        <div class="related-card">
+          <div class="bg-accent-light" style="height: 8rem; display: flex; align-items: center; justify-content: center; font-size: 2rem;">🎨</div>
+          <div style="padding: 1rem;">
+            <span class="tag bg-primary-light text-primary" style="margin-bottom: 0.625rem; display: inline-flex;">Design</span>
+            <h3 class="font-bold text-ink" style="font-size: 0.925rem; margin: 0 0 0.375rem; line-height: 1.4;">Design tokens without a design system</h3>
+            <p class="text-muted" style="font-size: 0.8rem; margin: 0;">4 min read · April 2026</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-ink" style="padding: 1.5rem 0; text-align: center;">
+    <span style="color: #64748b; font-size: 0.875rem;">
+      PresetCSS blog-post example ·
+      <a href="../landing-page/index.html" class="text-primary" style="text-decoration: none;">landing page →</a>
+    </span>
+  </footer>
+
+</body>
+</html>

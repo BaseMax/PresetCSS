@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newsletter — PresetCSS example</title>
+  <!--
+    cd examples/newsletter && presetcss build
+    Writes dist/style.css from preset.toml.
+  -->
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body class="bg-light" style="font-family: system-ui, sans-serif; margin: 0;">
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-white" style="border-bottom: 1px solid #d1d5db; padding: 0.875rem 1.5rem;">
+    <div class="container flex items-center justify-between">
+      <a href="#" class="font-bold text-dark" style="text-decoration: none; font-size: 1.1rem;">DevBytes</a>
+      <nav class="flex items-center" style="gap: 1.25rem;">
+        <a href="#" class="text-muted hover:text-primary" style="text-decoration: none; font-size: 0.875rem;">Archive</a>
+        <a href="#" class="text-muted hover:text-primary" style="text-decoration: none; font-size: 0.875rem;">Sponsor</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero-wrap">
+    <div class="container text-center">
+
+      <div class="bg-primary-light" style="display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.3rem 0.875rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; color: #047857; margin-bottom: 1.5rem;">
+        <span>✉️</span> Weekly · 2,400+ subscribers
+      </div>
+
+      <h1 class="font-bold text-dark" style="font-size: 2.75rem; line-height: 1.15; margin: 0 0 1.25rem; letter-spacing: -0.03em;">
+        One email.<br>The best of dev, weekly.
+      </h1>
+
+      <p class="text-muted" style="font-size: 1.0625rem; line-height: 1.75; max-width: 520px; margin: 0 auto 2rem;">
+        Curated Rust tips, open-source picks, and web tooling news —
+        delivered every Thursday morning. No fluff. No tracking pixels.
+      </p>
+
+      <!-- Email form -->
+      <div style="max-width: 520px; margin: 0 auto;">
+        <form class="email-form" onsubmit="return false;">
+          <input class="email-input" type="email" placeholder="you@example.com" aria-label="Email address">
+          <button class="subscribe-btn cursor-pointer" type="submit">Subscribe free</button>
+        </form>
+        <p class="text-muted" style="font-size: 0.8rem; margin: 0.625rem 0 0;">
+          Free forever. Unsubscribe any time. No spam, ever.
+        </p>
+      </div>
+
+      <!-- Social proof -->
+      <div class="social-proof" style="max-width: 460px; margin: 0 auto;">
+        <div class="flex" style="flex-shrink: 0;">
+          <div class="bg-primary" style="width: 2rem; height: 2rem; border-radius: 9999px; border: 2px solid white; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.65rem; font-weight: 700;">M</div>
+          <div style="width: 2rem; height: 2rem; border-radius: 9999px; border: 2px solid white; background: #7c3aed; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.65rem; font-weight: 700; margin-left: -0.5rem;">S</div>
+          <div style="width: 2rem; height: 2rem; border-radius: 9999px; border: 2px solid white; background: #d97706; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.65rem; font-weight: 700; margin-left: -0.5rem;">J</div>
+          <div style="width: 2rem; height: 2rem; border-radius: 9999px; border: 2px solid white; background: #dc2626; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.65rem; font-weight: 700; margin-left: -0.5rem;">+</div>
+        </div>
+        <div>
+          <p class="font-bold text-dark" style="font-size: 0.875rem; margin: 0;">2,400 developers already subscribed</p>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0.125rem 0 0;">Rust devs, frontend engineers, and open-source enthusiasts</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== BENEFITS ===== -->
+  <section class="bg-white" style="padding: 4rem 0; border-top: 1px solid #d1d5db;">
+    <div class="container">
+      <h2 class="font-bold text-dark text-center" style="font-size: 1.375rem; margin-bottom: 2.5rem;">What you get every week</h2>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+
+        <div class="benefit-item" style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; background: #f0fdf4; border: 1px solid #a7f3d0; border-radius: 0.75rem; padding: 1.25rem;">
+          <div style="font-size: 1.75rem;">🦀</div>
+          <div>
+            <p class="font-bold text-dark" style="font-size: 0.9rem; margin: 0 0 0.375rem;">Rust deep-dives</p>
+            <p class="text-muted" style="font-size: 0.825rem; margin: 0; line-height: 1.6;">Advanced patterns, lifetime tricks, and real-world crate reviews.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item" style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; background: #e0f2fe; border: 1px solid #7dd3fc; border-radius: 0.75rem; padding: 1.25rem;">
+          <div style="font-size: 1.75rem;">🛠️</div>
+          <div>
+            <p class="font-bold text-dark" style="font-size: 0.9rem; margin: 0 0 0.375rem;">Tooling picks</p>
+            <p class="text-muted" style="font-size: 0.825rem; margin: 0; line-height: 1.6;">New and underrated dev tools worth adding to your workflow.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item" style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; background: #fef3c7; border: 1px solid #fcd34d; border-radius: 0.75rem; padding: 1.25rem;">
+          <div style="font-size: 1.75rem;">📦</div>
+          <div>
+            <p class="font-bold text-dark" style="font-size: 0.9rem; margin: 0 0 0.375rem;">Open-source gems</p>
+            <p class="text-muted" style="font-size: 0.825rem; margin: 0; line-height: 1.6;">Fresh crates and projects that deserved more stars.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAST ISSUES ===== -->
+  <section style="padding: 4rem 0;">
+    <div class="container">
+      <h2 class="font-bold text-dark" style="font-size: 1.25rem; margin-bottom: 1.5rem;">Recent issues</h2>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <div class="bg-white" style="border: 1px solid #d1d5db; border-radius: 0.625rem; padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+          <div>
+            <p class="font-bold text-dark" style="font-size: 0.875rem; margin: 0 0 0.25rem;">#47 — Async Rust without tokio</p>
+            <p class="text-muted" style="font-size: 0.775rem; margin: 0;">Jun 5 · 1,240 readers</p>
+          </div>
+          <a href="#" class="text-primary" style="font-size: 0.8rem; text-decoration: none; font-weight: 600; white-space: nowrap;">Read →</a>
+        </div>
+        <div class="bg-white" style="border: 1px solid #d1d5db; border-radius: 0.625rem; padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+          <div>
+            <p class="font-bold text-dark" style="font-size: 0.875rem; margin: 0 0 0.25rem;">#46 — Five ways to profile Rust binaries</p>
+            <p class="text-muted" style="font-size: 0.775rem; margin: 0;">May 29 · 1,108 readers</p>
+          </div>
+          <a href="#" class="text-primary" style="font-size: 0.8rem; text-decoration: none; font-weight: 600; white-space: nowrap;">Read →</a>
+        </div>
+        <div class="bg-white" style="border: 1px solid #d1d5db; border-radius: 0.625rem; padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+          <div>
+            <p class="font-bold text-dark" style="font-size: 0.875rem; margin: 0 0 0.25rem;">#45 — Why we chose TOML over JSON for PresetCSS</p>
+            <p class="text-muted" style="font-size: 0.775rem; margin: 0;">May 22 · 980 readers</p>
+          </div>
+          <a href="#" class="text-primary" style="font-size: 0.8rem; text-decoration: none; font-weight: 600; white-space: nowrap;">Read →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-white" style="border-top: 1px solid #d1d5db; padding: 1.5rem 0; text-align: center;">
+    <span class="text-muted" style="font-size: 0.875rem;">
+      PresetCSS newsletter example ·
+      <a href="../landing-page/index.html" class="text-primary" style="text-decoration: none;">landing page →</a>
+    </span>
+  </footer>
+
+</body>
+</html>

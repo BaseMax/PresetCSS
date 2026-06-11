@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Board — PresetCSS example</title>
+  <!--
+    cd examples/job-board && presetcss build
+    Writes dist/style.css from preset.toml.
+  -->
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body class="bg-surface text-dark" style="font-family: system-ui, sans-serif; margin: 0;">
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-white" style="border-bottom: 1px solid #e2e8f0; padding: 0.875rem 1.5rem; position: sticky; top: 0; z-index: 10;">
+    <div class="container flex items-center justify-between">
+      <a href="#" class="font-bold text-dark" style="text-decoration: none; font-size: 1.1rem;">DevJobs</a>
+      <div class="flex items-center" style="gap: 1rem;">
+        <a href="#" class="text-muted hover:text-primary" style="text-decoration: none; font-size: 0.875rem;">Companies</a>
+        <a href="#" class="text-muted hover:text-primary" style="text-decoration: none; font-size: 0.875rem;">Salaries</a>
+        <a href="#" class="text-muted hover:text-primary" style="text-decoration: none; font-size: 0.875rem;">Remote</a>
+        <button class="bg-primary" style="color: white; border: none; padding: 0.45rem 0.875rem; border-radius: 0.375rem; font-size: 0.875rem; font-weight: 600; cursor: pointer;">Post a job</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO / SEARCH ===== -->
+  <div class="bg-primary" style="padding: 2.5rem 0;">
+    <div class="container">
+      <h1 class="font-bold" style="font-size: 1.75rem; color: white; margin: 0 0 1.25rem; letter-spacing: -0.02em;">Find your next developer role</h1>
+      <div class="search-bar">
+        <span style="font-size: 1.1rem;">🔍</span>
+        <input style="flex: 1; border: none; outline: none; font-size: 0.9rem; color: #0f172a; background: transparent;" type="text" placeholder="Job title, skill, or company">
+        <span style="color: #e2e8f0;">|</span>
+        <input style="flex: 1; border: none; outline: none; font-size: 0.9rem; color: #0f172a; background: transparent;" type="text" placeholder="📍 Location or Remote">
+        <button class="apply-btn" style="font-size: 0.9rem; padding: 0.5rem 1.25rem;">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FILTERS + JOBS ===== -->
+  <main class="container" style="padding: 2rem 1.5rem;">
+
+    <!-- Filters -->
+    <div class="flex items-center" style="gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+      <span class="text-muted" style="font-size: 0.8rem; font-weight: 600; margin-right: 0.25rem;">Filter:</span>
+      <button class="bg-primary-light text-primary" style="padding: 0.3rem 0.875rem; border-radius: 9999px; border: none; font-size: 0.8rem; font-weight: 600; cursor: pointer;">All types</button>
+      <button style="padding: 0.3rem 0.875rem; border-radius: 9999px; border: 1.5px solid #e2e8f0; background: white; font-size: 0.8rem; color: #64748b; cursor: pointer;">Full-time</button>
+      <button style="padding: 0.3rem 0.875rem; border-radius: 9999px; border: 1.5px solid #e2e8f0; background: white; font-size: 0.8rem; color: #64748b; cursor: pointer;">Remote</button>
+      <button style="padding: 0.3rem 0.875rem; border-radius: 9999px; border: 1.5px solid #e2e8f0; background: white; font-size: 0.8rem; color: #64748b; cursor: pointer;">Contract</button>
+      <button style="padding: 0.3rem 0.875rem; border-radius: 9999px; border: 1.5px solid #e2e8f0; background: white; font-size: 0.8rem; color: #64748b; cursor: pointer;">Senior</button>
+      <span class="text-muted" style="font-size: 0.8rem; margin-left: auto;">847 open positions</span>
+    </div>
+
+    <!-- Job list -->
+    <div style="display: flex; flex-direction: column; gap: 0.875rem;">
+
+      <!-- Job 1 -->
+      <div class="job-card hover:text-dark" style="cursor: pointer;">
+        <div class="company-logo" style="background: #dbeafe; color: #2563eb;">R</div>
+        <div style="flex: 1; min-width: 0;">
+          <div class="flex items-start justify-between" style="flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.375rem;">
+            <div>
+              <h3 class="font-bold text-dark" style="font-size: 0.95rem; margin: 0 0 0.125rem;">Senior Rust Engineer</h3>
+              <p class="text-muted" style="font-size: 0.825rem; margin: 0;">RustBase · Remote</p>
+            </div>
+            <div class="flex items-center" style="gap: 0.5rem; flex-shrink: 0;">
+              <span class="job-badge bg-success-light text-success">Remote</span>
+              <span class="job-badge bg-primary-light text-primary">Full-time</span>
+            </div>
+          </div>
+          <div class="flex items-center" style="gap: 0.5rem; flex-wrap: wrap;">
+            <span class="tag-chip">Rust</span>
+            <span class="tag-chip">WASM</span>
+            <span class="tag-chip">CLI</span>
+            <span class="tag-chip">Systems</span>
+            <span class="text-muted" style="font-size: 0.775rem; margin-left: auto; white-space: nowrap;">$120k–$160k · 2 days ago</span>
+          </div>
+        </div>
+        <a href="#" class="apply-btn" style="margin-left: 0.5rem;">Apply</a>
+      </div>
+
+      <!-- Job 2 -->
+      <div class="job-card" style="cursor: pointer; border-color: #bfdbfe; background: #f0f6ff;">
+        <div class="company-logo" style="background: #ede9fe; color: #7c3aed;">P</div>
+        <div style="flex: 1; min-width: 0;">
+          <div class="flex items-start justify-between" style="flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.375rem;">
+            <div>
+              <div class="flex items-center" style="gap: 0.5rem; margin-bottom: 0.125rem;">
+                <h3 class="font-bold text-dark" style="font-size: 0.95rem; margin: 0;">Frontend Engineer</h3>
+                <span class="job-badge bg-warning-light text-warning">New</span>
+              </div>
+              <p class="text-muted" style="font-size: 0.825rem; margin: 0;">PresetCSS · Remote</p>
+            </div>
+            <div class="flex items-center" style="gap: 0.5rem; flex-shrink: 0;">
+              <span class="job-badge bg-success-light text-success">Remote</span>
+              <span class="job-badge" style="background: #fce7f3; color: #be185d;">Part-time</span>
+            </div>
+          </div>
+          <div class="flex items-center" style="gap: 0.5rem; flex-wrap: wrap;">
+            <span class="tag-chip">TypeScript</span>
+            <span class="tag-chip">CSS</span>
+            <span class="tag-chip">Rust</span>
+            <span class="tag-chip">WASM</span>
+            <span class="text-muted" style="font-size: 0.775rem; margin-left: auto; white-space: nowrap;">$90k–$120k · 1 day ago</span>
+          </div>
+        </div>
+        <a href="#" class="apply-btn" style="margin-left: 0.5rem;">Apply</a>
+      </div>
+
+      <!-- Job 3 -->
+      <div class="job-card" style="cursor: pointer;">
+        <div class="company-logo" style="background: #d1fae5; color: #059669;">G</div>
+        <div style="flex: 1; min-width: 0;">
+          <div class="flex items-start justify-between" style="flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.375rem;">
+            <div>
+              <h3 class="font-bold text-dark" style="font-size: 0.95rem; margin: 0 0 0.125rem;">DevRel Engineer</h3>
+              <p class="text-muted" style="font-size: 0.825rem; margin: 0;">GreenBuild · San Francisco, CA</p>
+            </div>
+            <div class="flex items-center" style="gap: 0.5rem; flex-shrink: 0;">
+              <span class="job-badge bg-primary-light text-primary">Full-time</span>
+              <span class="job-badge" style="background: #f3f4f6; color: #64748b;">On-site</span>
+            </div>
+          </div>
+          <div class="flex items-center" style="gap: 0.5rem; flex-wrap: wrap;">
+            <span class="tag-chip">Developer Experience</span>
+            <span class="tag-chip">Content</span>
+            <span class="tag-chip">CSS</span>
+            <span class="text-muted" style="font-size: 0.775rem; margin-left: auto; white-space: nowrap;">$100k–$130k · 5 days ago</span>
+          </div>
+        </div>
+        <a href="#" class="apply-btn" style="margin-left: 0.5rem;">Apply</a>
+      </div>
+
+      <!-- Job 4 -->
+      <div class="job-card" style="cursor: pointer;">
+        <div class="company-logo" style="background: #fef3c7; color: #d97706;">C</div>
+        <div style="flex: 1; min-width: 0;">
+          <div class="flex items-start justify-between" style="flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.375rem;">
+            <div>
+              <h3 class="font-bold text-dark" style="font-size: 0.95rem; margin: 0 0 0.125rem;">Backend Engineer (Go/Rust)</h3>
+              <p class="text-muted" style="font-size: 0.825rem; margin: 0;">Cloudera · Remote (EU)</p>
+            </div>
+            <div class="flex items-center" style="gap: 0.5rem; flex-shrink: 0;">
+              <span class="job-badge bg-success-light text-success">Remote</span>
+              <span class="job-badge bg-primary-light text-primary">Full-time</span>
+            </div>
+          </div>
+          <div class="flex items-center" style="gap: 0.5rem; flex-wrap: wrap;">
+            <span class="tag-chip">Go</span>
+            <span class="tag-chip">Rust</span>
+            <span class="tag-chip">Postgres</span>
+            <span class="tag-chip">gRPC</span>
+            <span class="text-muted" style="font-size: 0.775rem; margin-left: auto; white-space: nowrap;">€95k–€140k · 1 week ago</span>
+          </div>
+        </div>
+        <a href="#" class="apply-btn" style="margin-left: 0.5rem;">Apply</a>
+      </div>
+
+      <!-- Job 5 -->
+      <div class="job-card" style="cursor: pointer;">
+        <div class="company-logo" style="background: #fce7f3; color: #be185d;">A</div>
+        <div style="flex: 1; min-width: 0;">
+          <div class="flex items-start justify-between" style="flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.375rem;">
+            <div>
+              <h3 class="font-bold text-dark" style="font-size: 0.95rem; margin: 0 0 0.125rem;">Staff Software Engineer</h3>
+              <p class="text-muted" style="font-size: 0.825rem; margin: 0;">Anthropic · London, UK</p>
+            </div>
+            <div class="flex items-center" style="gap: 0.5rem; flex-shrink: 0;">
+              <span class="job-badge bg-primary-light text-primary">Full-time</span>
+              <span class="job-badge" style="background: #fdf2f8; color: #9d174d;">Hybrid</span>
+            </div>
+          </div>
+          <div class="flex items-center" style="gap: 0.5rem; flex-wrap: wrap;">
+            <span class="tag-chip">Python</span>
+            <span class="tag-chip">Rust</span>
+            <span class="tag-chip">ML Systems</span>
+            <span class="text-muted" style="font-size: 0.775rem; margin-left: auto; white-space: nowrap;">£180k–£240k · 2 weeks ago</span>
+          </div>
+        </div>
+        <a href="#" class="apply-btn" style="margin-left: 0.5rem;">Apply</a>
+      </div>
+
+    </div>
+
+    <!-- Load more -->
+    <div class="text-center" style="margin-top: 2rem;">
+      <button style="padding: 0.625rem 1.5rem; border: 1.5px solid #e2e8f0; border-radius: 0.5rem; background: white; font-size: 0.875rem; font-weight: 500; cursor: pointer; color: #0f172a;">Load more jobs</button>
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="background: #0f172a; padding: 1.5rem 0; margin-top: 3rem; text-align: center;">
+    <span style="color: #64748b; font-size: 0.875rem;">
+      PresetCSS job-board example ·
+      <a href="../landing-page/index.html" class="text-primary" style="text-decoration: none;">landing page →</a>
+    </span>
+  </footer>
+
+</body>
+</html>

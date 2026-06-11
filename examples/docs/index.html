@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docs — PresetCSS</title>
+  <!--
+    cd examples/docs && presetcss build
+    Writes dist/style.css from preset.toml.
+  -->
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body class="bg-surface text-ink" style="font-family: system-ui, sans-serif; margin: 0;">
+
+  <!-- ===== TOP NAV ===== -->
+  <header class="bg-white" style="border-bottom: 1px solid #e2e8f0; padding: 0 1.5rem; height: 3.5rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 20;">
+    <div class="flex items-center" style="gap: 1.25rem;">
+      <span class="font-bold text-primary" style="font-size: 1.05rem;">PresetCSS Docs</span>
+      <span class="text-muted" style="font-size: 0.8rem;">v0.1.0</span>
+    </div>
+    <div class="flex items-center" style="gap: 1rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.375rem; padding: 0.35rem 0.75rem; font-size: 0.8rem; color: #64748b; cursor: pointer;">
+        <span>Search docs…</span>
+        <kbd style="background: white; border: 1px solid #e2e8f0; border-radius: 3px; padding: 0.1rem 0.3rem; font-size: 0.65rem;">⌘K</kbd>
+      </div>
+      <a href="https://github.com/BaseMax/PresetCSS" class="text-muted hover:text-primary" style="text-decoration: none; font-size: 0.875rem;">GitHub</a>
+    </div>
+  </header>
+
+  <div class="docs-layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="docs-sidebar">
+      <div style="padding: 0 0.75rem 1.5rem;">
+
+        <p style="font-size: 0.7rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.08em; padding: 0 0.5rem; margin: 0 0 0.375rem;">Getting started</p>
+        <a href="#install" class="nav-active">Installation</a>
+        <a href="#init"    class="nav-item hover:text-primary">Init a preset</a>
+        <a href="#build"   class="nav-item hover:text-primary">Build CSS</a>
+
+        <p style="font-size: 0.7rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.08em; padding: 0 0.5rem; margin: 1.25rem 0 0.375rem;">Preset format</p>
+        <a href="#colors"      class="nav-item hover:text-primary">Colors</a>
+        <a href="#spacing"     class="nav-item hover:text-primary">Spacing</a>
+        <a href="#text"        class="nav-item hover:text-primary">Text sizes</a>
+        <a href="#fonts"       class="nav-item hover:text-primary">Fonts</a>
+        <a href="#breakpoints" class="nav-item hover:text-primary">Breakpoints</a>
+        <a href="#variants"    class="nav-item hover:text-primary">Variants</a>
+        <a href="#utilities"   class="nav-item hover:text-primary">Custom utilities</a>
+
+        <p style="font-size: 0.7rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.08em; padding: 0 0.5rem; margin: 1.25rem 0 0.375rem;">CLI reference</p>
+        <a href="#cli-build"    class="nav-item hover:text-primary">build</a>
+        <a href="#cli-watch"    class="nav-item hover:text-primary">watch</a>
+        <a href="#cli-validate" class="nav-item hover:text-primary">validate</a>
+        <a href="#cli-explain"  class="nav-item hover:text-primary">explain</a>
+        <a href="#cli-export"   class="nav-item hover:text-primary">export</a>
+
+      </div>
+    </aside>
+
+    <!-- ===== CONTENT ===== -->
+    <main class="docs-content">
+
+      <h1 class="font-bold text-ink" id="install" style="font-size: 2rem; margin-bottom: 0.5rem; letter-spacing: -0.02em;">Installation</h1>
+      <p class="text-muted" style="font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.7;">
+        PresetCSS ships as a single static binary. No Node, no npm, no runtime dependencies.
+      </p>
+
+      <!-- Tip callout -->
+      <div class="callout-tip">
+        <span style="font-size: 1.25rem; flex-shrink: 0;">💡</span>
+        <div>
+          <p class="font-bold text-ink" style="margin: 0 0 0.25rem; font-size: 0.875rem;">Rust required for cargo install</p>
+          <p class="text-muted" style="margin: 0; font-size: 0.875rem; line-height: 1.6;">
+            Install Rust from <a href="https://rustup.rs" class="text-primary hover:text-primary-dark" style="text-decoration: none; font-weight: 500;">rustup.rs</a> if you haven't already.
+            Pre-built binaries will be available in a future release.
+          </p>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <span style="color:#64748b;"># Install from crates.io</span><br>
+        <span style="color:#e2e8f0;">cargo install presetcss</span><br><br>
+        <span style="color:#64748b;"># Verify the install</span><br>
+        <span style="color:#e2e8f0;">presetcss --version</span>
+      </div>
+
+      <h2 class="font-bold text-ink" id="init" style="font-size: 1.375rem; margin: 2.5rem 0 0.75rem;">Init a preset</h2>
+      <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 1rem; line-height: 1.7;">
+        Run <code style="background: #f1f5f9; padding: 0.1em 0.35em; border-radius: 3px; font-family: monospace; font-size: 0.85em;">presetcss init</code> in your project root to generate a commented
+        <code style="background: #f1f5f9; padding: 0.1em 0.35em; border-radius: 3px; font-family: monospace; font-size: 0.85em;">preset.toml</code> with sensible defaults.
+      </p>
+
+      <div class="code-block">
+        <span style="color:#64748b;"># Create preset.toml in the current directory</span><br>
+        <span style="color:#e2e8f0;">presetcss init</span><br><br>
+        <span style="color:#64748b;"># Or specify a path</span><br>
+        <span style="color:#e2e8f0;">presetcss init --output ./config/preset.toml</span>
+      </div>
+
+      <h2 class="font-bold text-ink" id="build" style="font-size: 1.375rem; margin: 2.5rem 0 0.75rem;">Build CSS</h2>
+
+      <div class="code-block">
+        <span style="color:#64748b;"># Generate CSS from preset.toml</span><br>
+        <span style="color:#e2e8f0;">presetcss build</span><br><br>
+        <span style="color:#64748b;"># Rebuild on file change</span><br>
+        <span style="color:#e2e8f0;">presetcss watch</span>
+      </div>
+
+      <h2 class="font-bold text-ink" id="colors" style="font-size: 1.375rem; margin: 2.5rem 0 0.75rem;">Colors</h2>
+      <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 1rem; line-height: 1.7;">
+        Each key in <code style="background: #f1f5f9; padding: 0.1em 0.35em; border-radius: 3px; font-family: monospace; font-size: 0.85em;">[colors]</code> generates three utility classes.
+      </p>
+
+      <div class="code-block">
+        <span style="color:#64748b;">[colors]</span><br>
+        <span style="color:#e2e8f0;">primary </span><span style="color:#94a3b8;">= </span><span style="color:#86efac;">"#0284c7"</span><br>
+        <span style="color:#e2e8f0;">muted   </span><span style="color:#94a3b8;">= </span><span style="color:#86efac;">"#64748b"</span>
+      </div>
+
+      <p class="text-muted" style="font-size: 0.875rem; margin: 0.75rem 0 0.5rem; line-height: 1.7;">Generates:</p>
+      <div style="background: white; border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden; margin-bottom: 1.5rem;">
+        <div style="display: grid; grid-template-columns: auto 1fr; font-size: 0.825rem;">
+          <div style="padding: 0.5rem 1rem; border-bottom: 1px solid #f1f5f9; font-family: monospace; color: #0284c7;">.bg-primary</div>
+          <div style="padding: 0.5rem 1rem; border-bottom: 1px solid #f1f5f9; color: #64748b;">background-color: #0284c7</div>
+          <div style="padding: 0.5rem 1rem; border-bottom: 1px solid #f1f5f9; font-family: monospace; color: #0284c7;">.text-primary</div>
+          <div style="padding: 0.5rem 1rem; border-bottom: 1px solid #f1f5f9; color: #64748b;">color: #0284c7</div>
+          <div style="padding: 0.5rem 1rem; font-family: monospace; color: #0284c7;">.border-primary</div>
+          <div style="padding: 0.5rem 1rem; color: #64748b;">border-color: #0284c7</div>
+        </div>
+      </div>
+
+      <!-- Warning callout -->
+      <div class="callout-warn">
+        <span style="font-size: 1.25rem; flex-shrink: 0;">⚠️</span>
+        <div>
+          <p class="font-bold text-ink" style="margin: 0 0 0.25rem; font-size: 0.875rem;">Name collisions</p>
+          <p class="text-muted" style="margin: 0; font-size: 0.875rem; line-height: 1.6;">
+            Color names that clash with static utilities (like <code style="background: #fef3c7; padding: 0.1em 0.3em; border-radius: 3px;">block</code> or <code style="background: #fef3c7; padding: 0.1em 0.3em; border-radius: 3px;">flex</code>)
+            will trigger a build error. Use <code style="background: #fef3c7; padding: 0.1em 0.3em; border-radius: 3px;">presetcss validate</code> to check before building.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="font-bold text-ink" id="variants" style="font-size: 1.375rem; margin: 2.5rem 0 0.75rem;">Variants</h2>
+      <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 1rem; line-height: 1.7;">
+        Variants are opt-in per token group. Nothing is generated unless you ask for it.
+      </p>
+
+      <div class="code-block">
+        <span style="color:#64748b;">[variants]</span><br>
+        <span style="color:#64748b;"># Generate hover: and focus: classes for color tokens only</span><br>
+        <span style="color:#e2e8f0;">colors  </span><span style="color:#94a3b8;">= </span><span style="color:#86efac;">["hover", "focus"]</span><br>
+        <span style="color:#e2e8f0;">static  </span><span style="color:#94a3b8;">= </span><span style="color:#86efac;">["responsive"]</span><span style="color:#64748b;">  # enables breakpoint:flex etc.</span><br>
+        <span style="color:#e2e8f0;">spacing </span><span style="color:#94a3b8;">= </span><span style="color:#86efac;">[]</span><span style="color:#64748b;">             # no spacing variants</span>
+      </div>
+
+      <!-- Danger callout -->
+      <div class="callout-danger">
+        <span style="font-size: 1.25rem; flex-shrink: 0;">🚫</span>
+        <div>
+          <p class="font-bold text-ink" style="margin: 0 0 0.25rem; font-size: 0.875rem;">Variant explosion</p>
+          <p class="text-muted" style="margin: 0; font-size: 0.875rem; line-height: 1.6;">
+            Enabling all variants for all groups can multiply output size by 10x or more.
+            Combine variants with <code style="background: #fee2e2; padding: 0.1em 0.3em; border-radius: 3px;">content</code> scanning to avoid shipping unused rules.
+          </p>
+        </div>
+      </div>
+
+      <!-- On-page nav -->
+      <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between;">
+        <a href="#install" class="text-primary hover:text-primary-dark" style="text-decoration: none; font-size: 0.875rem;">← Installation</a>
+        <a href="#spacing" class="text-primary hover:text-primary-dark" style="text-decoration: none; font-size: 0.875rem;">Spacing →</a>
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

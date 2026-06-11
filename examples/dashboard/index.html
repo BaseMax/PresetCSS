@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - PresetCSS example</title>
+  <!--
+    Run `presetcss build` in this directory first:
+      cd examples/dashboard
+      presetcss build
+    That writes dist/style.css from preset.toml.
+  -->
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body class="font-sans bg-light text-dark" style="display:flex; min-height:100vh;">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar-nav">
+    <div class="flex items-center gap-2" style="margin-bottom: 2rem; padding: 0 0.25rem;">
+      <div style="width:1.75rem; height:1.75rem; background:#3b82f6; border-radius:6px; display:flex; align-items:center; justify-content:center;">
+        <span style="color:white; font-size:0.75rem; font-weight:700;">P</span>
+      </div>
+      <span class="font-bold text-white text-sm">PresetCSS Admin</span>
+    </div>
+
+    <nav style="flex:1; display:flex; flex-direction:column; gap:0.25rem;">
+      <a href="#" class="nav-active">
+        <svg style="width:1rem;height:1rem;flex-shrink:0;" viewBox="0 0 24 24" fill="currentColor">
+          <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+        Overview
+      </a>
+      <a href="#" class="nav-item hover:bg-white" style="--tw-bg-opacity:.08;">
+        <svg style="width:1rem;height:1rem;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        Users
+      </a>
+      <a href="#" class="nav-item">
+        <svg style="width:1rem;height:1rem;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+        Analytics
+      </a>
+      <a href="#" class="nav-item">
+        <svg style="width:1rem;height:1rem;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+        </svg>
+        Reports
+      </a>
+      <a href="#" class="nav-item">
+        <svg style="width:1rem;height:1rem;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 19.07a10 10 0 0 1 0-14.14"/>
+        </svg>
+        Settings
+      </a>
+    </nav>
+
+    <!-- sidebar user -->
+    <div style="border-top: 1px solid #334155; padding-top: 1rem; display:flex; align-items:center; gap:0.625rem;">
+      <div class="avatar">MA</div>
+      <div style="flex:1; min-width:0;">
+        <p class="text-white text-sm font-bold" style="line-height:1.2;">MAX BASE</p>
+        <p style="color:#64748b; font-size:0.7rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">admin@presetcss.dev</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main style="flex:1; overflow:auto; padding: 2rem;">
+
+    <!-- Top bar -->
+    <div class="flex items-center justify-between" style="margin-bottom: 2rem;">
+      <div>
+        <h1 class="font-bold text-dark" style="font-size:1.375rem;">Overview</h1>
+        <p class="text-gray text-sm">Welcome back, MAX. Here's what's happening today.</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <button class="border rounded-md text-sm text-muted" style="padding:0.5rem 0.875rem; background:white; cursor:pointer;">
+          Export
+        </button>
+        <button class="font-bold text-sm text-white rounded-md" style="padding:0.5rem 0.875rem; background:#3b82f6; border:none; cursor:pointer;">
+          + New project
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== STAT CARDS ===== -->
+    <div class="grid-4" style="margin-bottom: 1.75rem;">
+
+      <div class="stat-card">
+        <div>
+          <p class="text-gray text-sm" style="margin-bottom:0.25rem;">Total users</p>
+          <p class="font-bold text-dark" style="font-size:1.5rem;">24,521</p>
+          <p class="text-sm" style="color:#16a34a; margin-top:0.25rem;">↑ 12% this month</p>
+        </div>
+        <div style="width:2.5rem;height:2.5rem;background:#dbeafe;border-radius:0.5rem;display:flex;align-items:center;justify-content:center;">
+          <svg style="width:1.25rem;height:1.25rem;color:#3b82f6;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div>
+          <p class="text-gray text-sm" style="margin-bottom:0.25rem;">Revenue</p>
+          <p class="font-bold text-dark" style="font-size:1.5rem;">$18,240</p>
+          <p class="text-sm" style="color:#16a34a; margin-top:0.25rem;">↑ 8.4% this month</p>
+        </div>
+        <div style="width:2.5rem;height:2.5rem;background:#dcfce7;border-radius:0.5rem;display:flex;align-items:center;justify-content:center;">
+          <svg style="width:1.25rem;height:1.25rem;color:#16a34a;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div>
+          <p class="text-gray text-sm" style="margin-bottom:0.25rem;">Open tickets</p>
+          <p class="font-bold text-dark" style="font-size:1.5rem;">142</p>
+          <p class="text-sm" style="color:#dc2626; margin-top:0.25rem;">↑ 3 since yesterday</p>
+        </div>
+        <div style="width:2.5rem;height:2.5rem;background:#fee2e2;border-radius:0.5rem;display:flex;align-items:center;justify-content:center;">
+          <svg style="width:1.25rem;height:1.25rem;color:#dc2626;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div>
+          <p class="text-gray text-sm" style="margin-bottom:0.25rem;">Builds today</p>
+          <p class="font-bold text-dark" style="font-size:1.5rem;">3,872</p>
+          <p class="text-sm text-gray" style="margin-top:0.25rem;">→ similar to yesterday</p>
+        </div>
+        <div style="width:2.5rem;height:2.5rem;background:#fef3c7;border-radius:0.5rem;display:flex;align-items:center;justify-content:center;">
+          <svg style="width:1.25rem;height:1.25rem;color:#d97706;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ===== RECENT PROJECTS + ACTIVITY ===== -->
+    <div class="grid-2" style="margin-bottom: 1.75rem;">
+
+      <!-- Recent projects table -->
+      <div class="card" style="padding:0; overflow:hidden;">
+        <div class="flex items-center justify-between" style="padding: 1.25rem 1.5rem; border-bottom: 1px solid #f1f5f9;">
+          <h2 class="font-bold text-dark text-sm">Recent projects</h2>
+          <a href="#" class="text-primary text-sm" style="text-decoration:none;">View all →</a>
+        </div>
+
+        <!-- Table header -->
+        <div class="table-row" style="background:#f8fafc; border-bottom: 1px solid #e2e8f0;">
+          <span class="text-gray font-bold" style="font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase;">Project</span>
+          <span class="text-gray font-bold" style="font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase;">Status</span>
+          <span class="text-gray font-bold" style="font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase;">Classes</span>
+          <span class="text-gray font-bold" style="font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase;">Size</span>
+          <span class="text-gray font-bold" style="font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase;">Built</span>
+        </div>
+
+        <!-- rows -->
+        <div class="table-row">
+          <div class="flex items-center gap-2">
+            <div style="width:1.75rem;height:1.75rem;background:#dbeafe;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#3b82f6;">P</div>
+            <span class="font-bold text-dark" style="font-size:0.85rem;">my-portfolio</span>
+          </div>
+          <span class="badge bg-success-light text-success">live</span>
+          <span class="text-muted">312</span>
+          <span class="text-muted">14 KB</span>
+          <span class="text-gray">2 min ago</span>
+        </div>
+
+        <div class="table-row">
+          <div class="flex items-center gap-2">
+            <div style="width:1.75rem;height:1.75rem;background:#fef3c7;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#d97706;">S</div>
+            <span class="font-bold text-dark" style="font-size:0.85rem;">shop-ui</span>
+          </div>
+          <span class="badge bg-warning-light text-warning">building</span>
+          <span class="text-muted">891</span>
+          <span class="text-muted">38 KB</span>
+          <span class="text-gray">12 min ago</span>
+        </div>
+
+        <div class="table-row">
+          <div class="flex items-center gap-2">
+            <div style="width:1.75rem;height:1.75rem;background:#dcfce7;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#16a34a;">D</div>
+            <span class="font-bold text-dark" style="font-size:0.85rem;">docs-site</span>
+          </div>
+          <span class="badge bg-success-light text-success">live</span>
+          <span class="text-muted">204</span>
+          <span class="text-muted">9 KB</span>
+          <span class="text-gray">1 hr ago</span>
+        </div>
+
+        <div class="table-row">
+          <div class="flex items-center gap-2">
+            <div style="width:1.75rem;height:1.75rem;background:#fee2e2;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#dc2626;">A</div>
+            <span class="font-bold text-dark" style="font-size:0.85rem;">admin-panel</span>
+          </div>
+          <span class="badge bg-danger-light text-danger">failed</span>
+          <span class="text-muted">-</span>
+          <span class="text-muted">-</span>
+          <span class="text-gray">3 hr ago</span>
+        </div>
+
+        <div class="table-row" style="border:none;">
+          <div class="flex items-center gap-2">
+            <div style="width:1.75rem;height:1.75rem;background:#f1f5f9;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#64748b;">B</div>
+            <span class="font-bold text-dark" style="font-size:0.85rem;">blog-theme</span>
+          </div>
+          <span class="badge" style="background:#f1f5f9; color:#64748b;">draft</span>
+          <span class="text-muted">-</span>
+          <span class="text-muted">-</span>
+          <span class="text-gray">yesterday</span>
+        </div>
+      </div>
+
+      <!-- Activity feed -->
+      <div class="card">
+        <h2 class="font-bold text-dark text-sm" style="margin-bottom: 1.25rem;">Activity</h2>
+
+        <div style="display:flex; flex-direction:column; gap:1rem;">
+
+          <div class="flex gap-3">
+            <div class="avatar" style="background:#16a34a; width:2rem; height:2rem; font-size:0.7rem;">MA</div>
+            <div style="flex:1;">
+              <p style="font-size:0.85rem;"><span class="font-bold text-dark">MAX BASE</span> <span class="text-gray">deployed</span> <span class="font-bold text-dark">my-portfolio</span></p>
+              <p class="text-gray" style="font-size:0.75rem; margin-top:0.125rem;">312 rules · 14 KB · 2 min ago</p>
+            </div>
+            <span class="badge bg-success-light text-success">build</span>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="avatar" style="background:#d97706; width:2rem; height:2rem; font-size:0.7rem;">JD</div>
+            <div style="flex:1;">
+              <p style="font-size:0.85rem;"><span class="font-bold text-dark">Jane D.</span> <span class="text-gray">updated preset for</span> <span class="font-bold text-dark">shop-ui</span></p>
+              <p class="text-gray" style="font-size:0.75rem; margin-top:0.125rem;">Added 3 colors · 12 min ago</p>
+            </div>
+            <span class="badge bg-primary-light text-primary">edit</span>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="avatar" style="background:#dc2626; width:2rem; height:2rem; font-size:0.7rem;">RK</div>
+            <div style="flex:1;">
+              <p style="font-size:0.85rem;"><span class="font-bold text-dark">R. Kim</span> <span class="text-gray">build failed on</span> <span class="font-bold text-dark">admin-panel</span></p>
+              <p class="text-gray" style="font-size:0.75rem; margin-top:0.125rem;">preset.toml:7 unknown table [colour] · 3 hr ago</p>
+            </div>
+            <span class="badge bg-danger-light text-danger">error</span>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="avatar" style="background:#7c3aed; width:2rem; height:2rem; font-size:0.7rem;">SP</div>
+            <div style="flex:1;">
+              <p style="font-size:0.85rem;"><span class="font-bold text-dark">S. Park</span> <span class="text-gray">created project</span> <span class="font-bold text-dark">blog-theme</span></p>
+              <p class="text-gray" style="font-size:0.75rem; margin-top:0.125rem;">Yesterday at 14:32</p>
+            </div>
+            <span class="badge" style="background:#f3f0ff; color:#7c3aed;">new</span>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="avatar" style="background:#0891b2; width:2rem; height:2rem; font-size:0.7rem;">AL</div>
+            <div style="flex:1;">
+              <p style="font-size:0.85rem;"><span class="font-bold text-dark">A. Lee</span> <span class="text-gray">exported tokens from</span> <span class="font-bold text-dark">docs-site</span></p>
+              <p class="text-gray" style="font-size:0.75rem; margin-top:0.125rem;">JSON · CSS vars · Yesterday at 10:11</p>
+            </div>
+            <span class="badge" style="background:#e0f2fe; color:#0891b2;">export</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== QUICK REFERENCE ===== -->
+    <div class="card">
+      <h2 class="font-bold text-dark text-sm" style="margin-bottom:1rem;">
+        Quick reference - PresetCSS classes used on this page
+      </h2>
+      <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span class="badge bg-primary-light text-primary">flex</span>
+        <span class="badge bg-primary-light text-primary">items-center</span>
+        <span class="badge bg-primary-light text-primary">justify-between</span>
+        <span class="badge bg-primary-light text-primary">gap-2</span>
+        <span class="badge bg-primary-light text-primary">gap-3</span>
+        <span class="badge bg-primary-light text-primary">font-bold</span>
+        <span class="badge bg-primary-light text-primary">text-sm</span>
+        <span class="badge bg-primary-light text-primary">text-dark</span>
+        <span class="badge bg-primary-light text-primary">text-gray</span>
+        <span class="badge bg-primary-light text-primary">text-primary</span>
+        <span class="badge bg-primary-light text-primary">text-white</span>
+        <span class="badge bg-primary-light text-primary">text-muted</span>
+        <span class="badge bg-primary-light text-primary">bg-light</span>
+        <span class="badge bg-primary-light text-primary">bg-success-light</span>
+        <span class="badge bg-primary-light text-primary">bg-warning-light</span>
+        <span class="badge bg-primary-light text-primary">bg-danger-light</span>
+        <span class="badge bg-primary-light text-primary">border</span>
+        <span class="badge bg-primary-light text-primary">rounded-md</span>
+        <span class="badge bg-success-light text-success">sidebar-nav [utility]</span>
+        <span class="badge bg-success-light text-success">nav-item [utility]</span>
+        <span class="badge bg-success-light text-success">nav-active [utility]</span>
+        <span class="badge bg-success-light text-success">stat-card [utility]</span>
+        <span class="badge bg-success-light text-success">table-row [utility]</span>
+        <span class="badge bg-success-light text-success">badge [utility]</span>
+        <span class="badge bg-success-light text-success">avatar [utility]</span>
+        <span class="badge bg-success-light text-success">grid-4 [utility]</span>
+        <span class="badge bg-success-light text-success">grid-2 [utility]</span>
+        <span class="badge bg-success-light text-success">card [utility]</span>
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>

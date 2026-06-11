@@ -1,0 +1,18 @@
+# 404 Error page
+[options]
+output = "dist/style.css"
+
+[colors]
+primary      = "#3b82f6"
+dark         = "#0f172a"
+muted        = "#64748b"
+surface      = "#f8fafc"
+white        = "#ffffff"
+border       = "#e2e8f0"
+
+[utilities]
+error-page  = "min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; text-align: center; background: #f8fafc;"
+error-code  = "font-size: 8rem; font-weight: 900; line-height: 1; color: #e2e8f0; font-family: system-ui, sans-serif; user-select: none;"
+error-title = "font-size: 1.75rem; font-weight: 700; color: #0f172a; margin: 0 0 0.75rem;"
+btn-home    = "display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.75rem; background: #3b82f6; color: white; border-radius: 0.625rem; font-weight: 600; text-decoration: none; font-size: 0.9rem;"
+btn-back    = "display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.75rem; background: white; color: #0f172a; border: 1.5px solid #e2e8f0; border-radius: 0.625rem; font-weight: 600; text-decoration: none; font-size: 0.9rem;"

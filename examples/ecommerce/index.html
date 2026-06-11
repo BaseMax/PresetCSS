@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — PresetCSS example</title>
+  <!--
+    cd examples/ecommerce && presetcss build
+    Writes dist/style.css from preset.toml.
+  -->
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body class="bg-light text-dark" style="font-family: system-ui, sans-serif; margin: 0;">
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-white" style="border-bottom: 1px solid #e5e7eb; padding: 0 1.5rem;">
+    <div class="container flex items-center justify-between" style="height: 3.75rem;">
+      <a href="#" class="font-bold text-dark" style="text-decoration: none; font-size: 1.25rem; letter-spacing: -0.02em;">Storefront</a>
+      <nav class="flex items-center" style="gap: 1.5rem;">
+        <a href="#" class="text-muted hover:text-dark" style="text-decoration: none; font-size: 0.875rem;">New arrivals</a>
+        <a href="#" class="text-primary font-bold" style="text-decoration: none; font-size: 0.875rem;">Sale</a>
+        <a href="#" class="text-muted hover:text-dark" style="text-decoration: none; font-size: 0.875rem;">Men</a>
+        <a href="#" class="text-muted hover:text-dark" style="text-decoration: none; font-size: 0.875rem;">Women</a>
+      </nav>
+      <div class="flex items-center" style="gap: 1rem;">
+        <button style="background: none; border: none; cursor: pointer; color: #6b7280; font-size: 1.1rem;">🔍</button>
+        <button style="background: none; border: none; cursor: pointer; color: #6b7280; font-size: 1.1rem;">🛒 <sup style="background: #dc2626; color: white; border-radius: 9999px; padding: 0 0.35rem; font-size: 0.6rem; font-weight: 700;">3</sup></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== FILTERS + GRID ===== -->
+  <main class="container" style="padding: 2rem 1.5rem;">
+
+    <div class="flex items-center justify-between" style="margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem;">
+      <div>
+        <h1 class="font-bold text-dark" style="font-size: 1.375rem; margin: 0;">All Products</h1>
+        <p class="text-muted" style="font-size: 0.85rem; margin: 0.25rem 0 0;">124 items</p>
+      </div>
+      <div class="flex items-center" style="gap: 0.5rem; flex-wrap: wrap;">
+        <span class="text-muted" style="font-size: 0.8rem;">Filter:</span>
+        <button class="filter-chip bg-dark text-white border-dark" style="border-color: #111827; color: white; background: #111827; font-size: 0.8rem;">All</button>
+        <button class="filter-chip hover:text-dark" style="font-size: 0.8rem; color: #6b7280;">T-shirts</button>
+        <button class="filter-chip hover:text-dark" style="font-size: 0.8rem; color: #6b7280;">Hoodies</button>
+        <button class="filter-chip hover:text-dark" style="font-size: 0.8rem; color: #6b7280;">Accessories</button>
+        <button class="filter-chip hover:text-dark" style="font-size: 0.8rem; color: #6b7280;">Sale</button>
+      </div>
+      <div class="flex items-center" style="gap: 0.5rem;">
+        <label class="text-muted" style="font-size: 0.8rem;">Sort:</label>
+        <select style="border: 1px solid #e5e7eb; border-radius: 0.375rem; padding: 0.35rem 0.5rem; font-size: 0.8rem; color: #374151;">
+          <option>Featured</option>
+          <option>Price: Low to High</option>
+          <option>Price: High to Low</option>
+          <option>Newest</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Product grid -->
+    <div class="grid-products">
+
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-img">👕</div>
+        <div style="padding: 0.875rem;">
+          <div class="flex items-center justify-between" style="margin-bottom: 0.375rem;">
+            <span class="font-bold text-dark" style="font-size: 0.875rem;">Classic Tee</span>
+            <span class="sale-badge">-30%</span>
+          </div>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0 0 0.625rem;">Essential collection</p>
+          <div class="flex items-center" style="gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span class="price-tag">$19</span>
+            <span class="text-muted" style="font-size: 0.875rem; text-decoration: line-through;">$27</span>
+          </div>
+          <button class="add-to-cart cursor-pointer">Add to cart</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-img" style="background: #1e293b;">🧥</div>
+        <div style="padding: 0.875rem;">
+          <div class="flex items-center justify-between" style="margin-bottom: 0.375rem;">
+            <span class="font-bold text-dark" style="font-size: 0.875rem;">Zip Hoodie</span>
+          </div>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0 0 0.625rem;">Premium fleece</p>
+          <div class="flex items-center" style="gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span class="price-tag">$65</span>
+          </div>
+          <button class="add-to-cart cursor-pointer">Add to cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 — out of stock -->
+      <div class="product-card" style="opacity: 0.8;">
+        <div class="product-img" style="background: #fef3c7; position: relative;">
+          👟
+          <div style="position: absolute; bottom: 0.5rem; left: 0.5rem; background: #111827; color: white; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px;">SOLD OUT</div>
+        </div>
+        <div style="padding: 0.875rem;">
+          <div class="flex items-center justify-between" style="margin-bottom: 0.375rem;">
+            <span class="font-bold text-dark" style="font-size: 0.875rem;">Canvas Sneaker</span>
+          </div>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0 0 0.625rem;">Limited run</p>
+          <div class="flex items-center" style="gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span class="price-tag" style="color: #9ca3af;">$89</span>
+          </div>
+          <button class="add-to-cart cursor-pointer" style="background: #e5e7eb; color: #9ca3af; cursor: not-allowed;">Out of stock</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="product-img" style="background: #fce7f3;">👜</div>
+        <div style="padding: 0.875rem;">
+          <div class="flex items-center justify-between" style="margin-bottom: 0.375rem;">
+            <span class="font-bold text-dark" style="font-size: 0.875rem;">Tote Bag</span>
+            <span class="bg-success-light text-success" style="font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.4rem; border-radius: 4px;">New</span>
+          </div>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0 0 0.625rem;">Everyday carry</p>
+          <div class="flex items-center" style="gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span class="price-tag">$34</span>
+          </div>
+          <button class="add-to-cart cursor-pointer">Add to cart</button>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-card">
+        <div class="product-img" style="background: #e0e7ff;">🧢</div>
+        <div style="padding: 0.875rem;">
+          <div class="flex items-center justify-between" style="margin-bottom: 0.375rem;">
+            <span class="font-bold text-dark" style="font-size: 0.875rem;">Logo Cap</span>
+            <span class="sale-badge">-15%</span>
+          </div>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0 0 0.625rem;">Adjustable fit</p>
+          <div class="flex items-center" style="gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span class="price-tag">$25</span>
+            <span class="text-muted" style="font-size: 0.875rem; text-decoration: line-through;">$29</span>
+          </div>
+          <button class="add-to-cart cursor-pointer">Add to cart</button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-card">
+        <div class="product-img" style="background: #dcfce7;">🧦</div>
+        <div style="padding: 0.875rem;">
+          <div class="flex items-center justify-between" style="margin-bottom: 0.375rem;">
+            <span class="font-bold text-dark" style="font-size: 0.875rem;">Crew Socks (3pk)</span>
+          </div>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0 0 0.625rem;">Organic cotton</p>
+          <div class="flex items-center" style="gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span class="price-tag">$18</span>
+          </div>
+          <button class="add-to-cart cursor-pointer">Add to cart</button>
+        </div>
+      </div>
+
+      <!-- Product 7 -->
+      <div class="product-card">
+        <div class="product-img" style="background: #f3e8ff;">🧤</div>
+        <div style="padding: 0.875rem;">
+          <div class="flex items-center justify-between" style="margin-bottom: 0.375rem;">
+            <span class="font-bold text-dark" style="font-size: 0.875rem;">Knit Gloves</span>
+            <span class="sale-badge">-20%</span>
+          </div>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0 0 0.625rem;">Merino wool blend</p>
+          <div class="flex items-center" style="gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span class="price-tag">$31</span>
+            <span class="text-muted" style="font-size: 0.875rem; text-decoration: line-through;">$39</span>
+          </div>
+          <button class="add-to-cart cursor-pointer">Add to cart</button>
+        </div>
+      </div>
+
+      <!-- Product 8 -->
+      <div class="product-card">
+        <div class="product-img" style="background: #fff7ed;">🧣</div>
+        <div style="padding: 0.875rem;">
+          <div class="flex items-center justify-between" style="margin-bottom: 0.375rem;">
+            <span class="font-bold text-dark" style="font-size: 0.875rem;">Winter Scarf</span>
+            <span class="bg-success-light text-success" style="font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.4rem; border-radius: 4px;">New</span>
+          </div>
+          <p class="text-muted" style="font-size: 0.775rem; margin: 0 0 0.625rem;">Cashmere blend</p>
+          <div class="flex items-center" style="gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span class="price-tag">$49</span>
+          </div>
+          <button class="add-to-cart cursor-pointer">Add to cart</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex items-center justify-center" style="gap: 0.375rem; margin-top: 3rem;">
+      <button style="width: 2.25rem; height: 2.25rem; border-radius: 0.375rem; border: 1px solid #e5e7eb; background: white; cursor: pointer; font-size: 0.875rem; color: #6b7280;">←</button>
+      <button class="bg-dark" style="width: 2.25rem; height: 2.25rem; border-radius: 0.375rem; border: none; color: white; cursor: pointer; font-size: 0.875rem; font-weight: 700;">1</button>
+      <button style="width: 2.25rem; height: 2.25rem; border-radius: 0.375rem; border: 1px solid #e5e7eb; background: white; cursor: pointer; font-size: 0.875rem; color: #6b7280;">2</button>
+      <button style="width: 2.25rem; height: 2.25rem; border-radius: 0.375rem; border: 1px solid #e5e7eb; background: white; cursor: pointer; font-size: 0.875rem; color: #6b7280;">3</button>
+      <button style="width: 2.25rem; height: 2.25rem; border-radius: 0.375rem; border: 1px solid #e5e7eb; background: white; cursor: pointer; font-size: 0.875rem; color: #6b7280;">→</button>
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-dark" style="padding: 1.5rem 0; margin-top: 4rem; text-align: center;">
+    <span style="color: #6b7280; font-size: 0.875rem;">
+      PresetCSS ecommerce example ·
+      <a href="../landing-page/index.html" style="color: #dc2626; text-decoration: none;">landing page →</a>
+    </span>
+  </footer>
+
+</body>
+</html>

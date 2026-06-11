@@ -1,0 +1,32 @@
+# Job board / listings page
+[options]
+output = "dist/style.css"
+
+[colors]
+primary       = "#2563eb"
+primary-light = "#dbeafe"
+dark          = "#0f172a"
+muted         = "#64748b"
+surface       = "#f8fafc"
+white         = "#ffffff"
+success       = "#16a34a"
+success-light = "#dcfce7"
+warning       = "#d97706"
+warning-light = "#fef3c7"
+border        = "#e2e8f0"
+
+[breakpoints]
+md = "768px"
+lg = "1024px"
+
+[variants]
+colors = ["hover"]
+
+[utilities]
+container   = "max-width: 960px; margin: 0 auto; padding: 0 1.5rem;"
+job-card    = "background: white; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem;"
+company-logo = "width: 3rem; height: 3rem; border-radius: 0.5rem; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0;"
+job-badge   = "display: inline-flex; align-items: center; padding: 0.2rem 0.625rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 600;"
+tag-chip    = "display: inline-flex; align-items: center; padding: 0.2rem 0.625rem; border-radius: 4px; font-size: 0.75rem; background: #f1f5f9; color: #0f172a; border: 1px solid #e2e8f0;"
+apply-btn   = "display: inline-flex; align-items: center; padding: 0.5rem 1rem; background: #2563eb; color: white; border-radius: 0.5rem; font-weight: 600; font-size: 0.8rem; text-decoration: none; border: none; cursor: pointer; flex-shrink: 0;"
+search-bar  = "display: flex; gap: 0.625rem; background: white; border: 1.5px solid #e2e8f0; border-radius: 0.625rem; padding: 0.5rem 0.75rem; align-items: center;"

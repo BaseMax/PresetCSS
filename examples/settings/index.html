@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings — PresetCSS example</title>
+  <!--
+    cd examples/settings && presetcss build
+    Writes dist/style.css from preset.toml.
+  -->
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body class="bg-surface text-dark" style="font-family: system-ui, sans-serif; margin: 0;">
+
+  <!-- ===== TOP BAR ===== -->
+  <header class="bg-white" style="border-bottom: 1px solid #e2e8f0; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+    <div class="flex items-center" style="gap: 1rem;">
+      <div class="bg-primary" style="width: 1.75rem; height: 1.75rem; border-radius: 0.375rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.75rem;">P</div>
+      <span class="font-bold text-dark" style="font-size: 0.95rem;">PresetCSS</span>
+    </div>
+    <div class="flex items-center" style="gap: 0.75rem;">
+      <span class="text-muted" style="font-size: 0.875rem;">MAX BASE</span>
+      <div class="bg-primary" style="width: 2rem; height: 2rem; border-radius: 9999px; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;">M</div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="settings-wrap">
+
+      <!-- ===== SIDEBAR NAV ===== -->
+      <nav class="settings-nav">
+        <p style="font-size: 0.7rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.08em; padding: 0 0.875rem; margin: 0 0 0.5rem;">Account</p>
+        <a href="#profile"  class="nav-link-active">
+          <span>👤</span> Profile
+        </a>
+        <a href="#security" class="nav-link hover:text-primary">
+          <span>🔒</span> Security
+        </a>
+        <a href="#notifs"   class="nav-link hover:text-primary">
+          <span>🔔</span> Notifications
+        </a>
+        <p style="font-size: 0.7rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.08em; padding: 0 0.875rem; margin: 1.25rem 0 0.5rem;">Workspace</p>
+        <a href="#billing"  class="nav-link hover:text-primary">
+          <span>💳</span> Billing
+        </a>
+        <a href="#tokens"   class="nav-link hover:text-primary">
+          <span>🔑</span> API tokens
+        </a>
+        <a href="#team"     class="nav-link hover:text-primary">
+          <span>👥</span> Team
+        </a>
+      </nav>
+
+      <!-- ===== MAIN ===== -->
+      <main class="settings-main">
+
+        <!-- Profile -->
+        <div class="settings-card" id="profile">
+          <h2 class="font-bold text-dark" style="font-size: 1rem; margin: 0 0 1.5rem;">Profile</h2>
+
+          <!-- Avatar row -->
+          <div class="flex items-center" style="gap: 1.25rem; margin-bottom: 1.75rem; padding-bottom: 1.75rem; border-bottom: 1px solid #f1f5f9;">
+            <div class="bg-primary" style="width: 4rem; height: 4rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.25rem; font-weight: 700; flex-shrink: 0;">M</div>
+            <div>
+              <p class="font-bold text-dark" style="font-size: 0.875rem; margin: 0 0 0.25rem;">MAX BASE</p>
+              <p class="text-muted" style="font-size: 0.8rem; margin: 0 0 0.625rem;">nameernkhzam@gmail.com</p>
+              <button style="padding: 0.35rem 0.75rem; border: 1.5px solid #e2e8f0; border-radius: 0.375rem; background: white; font-size: 0.8rem; cursor: pointer; color: #0f172a;">Change avatar</button>
+            </div>
+          </div>
+
+          <!-- Form fields -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+            <div class="form-row">
+              <label class="font-bold text-dark" style="font-size: 0.8rem;">First name</label>
+              <input class="form-input" type="text" value="Seyyed Ali">
+            </div>
+            <div class="form-row">
+              <label class="font-bold text-dark" style="font-size: 0.8rem;">Last name</label>
+              <input class="form-input" type="text" value="Mohammadiyeh">
+            </div>
+          </div>
+          <div class="form-row" style="margin-bottom: 1rem;">
+            <label class="font-bold text-dark" style="font-size: 0.8rem;">Username</label>
+            <input class="form-input" type="text" value="BaseMax">
+          </div>
+          <div class="form-row" style="margin-bottom: 1.5rem;">
+            <label class="font-bold text-dark" style="font-size: 0.8rem;">Bio</label>
+            <textarea class="form-input" rows="3" style="resize: vertical;">Rust developer. Open-source author. Building PresetCSS.</textarea>
+          </div>
+
+          <button class="btn-save">Save changes</button>
+        </div>
+
+        <!-- Notification preferences -->
+        <div class="settings-card" id="notifs">
+          <h2 class="font-bold text-dark" style="font-size: 1rem; margin: 0 0 1.5rem;">Notification preferences</h2>
+
+          <div style="display: flex; flex-direction: column; gap: 0.875rem;">
+
+            <div class="flex items-center justify-between" style="padding: 0.875rem 0; border-bottom: 1px solid #f1f5f9;">
+              <div>
+                <p class="font-bold text-dark" style="font-size: 0.875rem; margin: 0 0 0.125rem;">Build completions</p>
+                <p class="text-muted" style="font-size: 0.8rem; margin: 0;">Get notified when a presetcss build finishes.</p>
+              </div>
+              <div class="toggle">
+                <input type="checkbox" checked style="position: absolute; opacity: 0; width: 0; height: 0;">
+                <div class="bg-primary" style="position: absolute; inset: 0; border-radius: 9999px; cursor: pointer;"></div>
+                <div style="position: absolute; top: 0.15rem; left: 0.15rem; width: 1.2rem; height: 1.2rem; border-radius: 9999px; background: white; transition: transform 0.2s; transform: translateX(1.25rem);"></div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between" style="padding: 0.875rem 0; border-bottom: 1px solid #f1f5f9;">
+              <div>
+                <p class="font-bold text-dark" style="font-size: 0.875rem; margin: 0 0 0.125rem;">Build errors</p>
+                <p class="text-muted" style="font-size: 0.8rem; margin: 0;">Alerts when your preset has validation errors.</p>
+              </div>
+              <div class="toggle">
+                <input type="checkbox" checked style="position: absolute; opacity: 0; width: 0; height: 0;">
+                <div class="bg-primary" style="position: absolute; inset: 0; border-radius: 9999px; cursor: pointer;"></div>
+                <div style="position: absolute; top: 0.15rem; left: 0.15rem; width: 1.2rem; height: 1.2rem; border-radius: 9999px; background: white; transition: transform 0.2s; transform: translateX(1.25rem);"></div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between" style="padding: 0.875rem 0;">
+              <div>
+                <p class="font-bold text-dark" style="font-size: 0.875rem; margin: 0 0 0.125rem;">Weekly digest</p>
+                <p class="text-muted" style="font-size: 0.8rem; margin: 0;">Summary of builds, team activity, and changelog updates.</p>
+              </div>
+              <div class="toggle" style="opacity: 0.5;">
+                <input type="checkbox" style="position: absolute; opacity: 0; width: 0; height: 0;">
+                <div style="position: absolute; inset: 0; border-radius: 9999px; background: #e2e8f0; cursor: pointer;"></div>
+                <div style="position: absolute; top: 0.15rem; left: 0.15rem; width: 1.2rem; height: 1.2rem; border-radius: 9999px; background: white; transition: transform 0.2s;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Danger zone -->
+        <div class="danger-zone">
+          <h2 class="font-bold" style="font-size: 0.9rem; margin: 0 0 0.5rem; color: #dc2626;">Danger zone</h2>
+          <p class="text-muted" style="font-size: 0.825rem; margin: 0 0 1.25rem; line-height: 1.6;">
+            Deleting your account is permanent and cannot be undone. All presets, builds, and team memberships will be removed.
+          </p>
+          <button style="padding: 0.5rem 1rem; background: white; border: 1.5px solid #fca5a5; border-radius: 0.5rem; color: #dc2626; font-size: 0.8rem; font-weight: 600; cursor: pointer;">
+            Delete account
+          </button>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+</body>
+</html>

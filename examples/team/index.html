@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team — PresetCSS example</title>
+  <!--
+    cd examples/team && presetcss build
+    Writes dist/style.css from preset.toml.
+  -->
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body class="bg-surface text-dark" style="font-family: system-ui, sans-serif; margin: 0;">
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-white" style="border-bottom: 1px solid #e2e8f0; padding: 0.875rem 1.5rem; position: sticky; top: 0; z-index: 10;">
+    <div class="container flex items-center justify-between">
+      <a href="#" class="font-bold text-dark" style="text-decoration: none; font-size: 1.1rem;">Acme Corp</a>
+      <nav class="flex items-center" style="gap: 1.5rem;">
+        <a href="#" class="text-muted hover:text-primary" style="text-decoration: none; font-size: 0.875rem;">About</a>
+        <a href="#" class="text-primary font-bold" style="text-decoration: none; font-size: 0.875rem;">Team</a>
+        <a href="#" class="text-muted hover:text-primary" style="text-decoration: none; font-size: 0.875rem;">Careers</a>
+        <a href="#" class="bg-primary" style="color: white; padding: 0.4rem 0.875rem; border-radius: 0.375rem; text-decoration: none; font-size: 0.875rem; font-weight: 600;">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section style="padding: 5rem 0 4rem;">
+    <div class="container text-center" style="max-width: 580px; margin-left: auto; margin-right: auto;">
+      <h1 class="font-bold text-dark" style="font-size: 2.5rem; line-height: 1.15; margin-bottom: 1rem; letter-spacing: -0.02em;">
+        The people behind<br>PresetCSS
+      </h1>
+      <p class="text-muted" style="font-size: 1.0625rem; line-height: 1.75; margin: 0;">
+        A small, remote-first team building open-source developer tools.
+        We believe great tooling should be simple, fast, and honest.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== LEADERSHIP ===== -->
+  <section class="bg-white" style="padding: 4rem 0; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+    <div class="container">
+      <h2 class="font-bold text-dark" style="font-size: 1.125rem; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.8rem; color: #64748b;">Leadership</h2>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+
+        <div class="team-card">
+          <div style="padding: 2rem 1.5rem 1.5rem;">
+            <div class="member-img bg-primary" style="color: white;">M</div>
+            <div class="dept-badge bg-primary-light text-primary" style="margin-bottom: 0.75rem;">Engineering</div>
+            <p class="font-bold text-dark" style="font-size: 1rem; margin: 0 0 0.25rem;">MAX BASE</p>
+            <p class="text-muted" style="font-size: 0.825rem; margin: 0 0 0.75rem;">Founder &amp; Lead Engineer</p>
+            <p class="text-muted" style="font-size: 0.8rem; line-height: 1.6; margin: 0 0 1rem;">
+              Rust &amp; C systems programmer. Open-source author. Writes about compilers, parsers, and CLI tools.
+            </p>
+            <div class="social-row">
+              <a href="#" class="social-btn hover:text-primary">GH</a>
+              <a href="#" class="social-btn hover:text-primary">TW</a>
+              <a href="#" class="social-btn hover:text-primary">LI</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div style="padding: 2rem 1.5rem 1.5rem;">
+            <div class="member-img" style="background: #fef3c7; color: #d97706;">S</div>
+            <div class="dept-badge" style="background: #fef3c7; color: #d97706; margin-bottom: 0.75rem;">Design</div>
+            <p class="font-bold text-dark" style="font-size: 1rem; margin: 0 0 0.25rem;">Sara Chen</p>
+            <p class="text-muted" style="font-size: 0.825rem; margin: 0 0 0.75rem;">Design Lead</p>
+            <p class="text-muted" style="font-size: 0.8rem; line-height: 1.6; margin: 0 0 1rem;">
+              Design systems, accessibility, and CSS architecture. Previously at a major design tool company.
+            </p>
+            <div class="social-row">
+              <a href="#" class="social-btn hover:text-primary">GH</a>
+              <a href="#" class="social-btn hover:text-primary">TW</a>
+              <a href="#" class="social-btn hover:text-primary">LI</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div style="padding: 2rem 1.5rem 1.5rem;">
+            <div class="member-img" style="background: #ede9fe; color: #7c3aed;">R</div>
+            <div class="dept-badge" style="background: #ede9fe; color: #7c3aed; margin-bottom: 0.75rem;">DevRel</div>
+            <p class="font-bold text-dark" style="font-size: 1rem; margin: 0 0 0.25rem;">Reza Kim</p>
+            <p class="text-muted" style="font-size: 0.825rem; margin: 0 0 0.75rem;">Developer Relations</p>
+            <p class="text-muted" style="font-size: 0.8rem; line-height: 1.6; margin: 0 0 1rem;">
+              Makes tooling feel approachable. Speaker, writer, and tutorial maker. Community-driven.
+            </p>
+            <div class="social-row">
+              <a href="#" class="social-btn hover:text-primary">GH</a>
+              <a href="#" class="social-btn hover:text-primary">TW</a>
+              <a href="#" class="social-btn hover:text-primary">YT</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTRIBUTORS ===== -->
+  <section style="padding: 4rem 0;">
+    <div class="container">
+      <h2 class="font-bold text-dark" style="font-size: 0.8rem; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.06em; color: #64748b;">Open-source contributors</h2>
+
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem;">
+        <div class="team-card" style="text-align: center; padding: 1.25rem 1rem;">
+          <div class="member-img" style="width: 3rem; height: 3rem; font-size: 1rem; background: #dcfce7; color: #16a34a; margin-bottom: 0.625rem;">A</div>
+          <p class="font-bold text-dark" style="font-size: 0.8rem; margin: 0 0 0.125rem;">Akira Lee</p>
+          <p class="text-muted" style="font-size: 0.7rem; margin: 0;">12 commits</p>
+        </div>
+        <div class="team-card" style="text-align: center; padding: 1.25rem 1rem;">
+          <div class="member-img" style="width: 3rem; height: 3rem; font-size: 1rem; background: #fee2e2; color: #dc2626; margin-bottom: 0.625rem;">J</div>
+          <p class="font-bold text-dark" style="font-size: 0.8rem; margin: 0 0 0.125rem;">Jana Müller</p>
+          <p class="text-muted" style="font-size: 0.7rem; margin: 0;">8 commits</p>
+        </div>
+        <div class="team-card" style="text-align: center; padding: 1.25rem 1rem;">
+          <div class="member-img" style="width: 3rem; height: 3rem; font-size: 1rem; background: #e0f2fe; color: #0284c7; margin-bottom: 0.625rem;">T</div>
+          <p class="font-bold text-dark" style="font-size: 0.8rem; margin: 0 0 0.125rem;">Tom Suzuki</p>
+          <p class="text-muted" style="font-size: 0.7rem; margin: 0;">6 commits</p>
+        </div>
+        <div class="team-card" style="text-align: center; padding: 1.25rem 1rem;">
+          <div class="member-img" style="width: 3rem; height: 3rem; font-size: 1rem; background: #fef3c7; color: #d97706; margin-bottom: 0.625rem;">P</div>
+          <p class="font-bold text-dark" style="font-size: 0.8rem; margin: 0 0 0.125rem;">Priya Nair</p>
+          <p class="text-muted" style="font-size: 0.7rem; margin: 0;">5 commits</p>
+        </div>
+        <div class="team-card" style="text-align: center; padding: 1.25rem 1rem;">
+          <div class="member-img" style="width: 3rem; height: 3rem; font-size: 1rem; background: #f3e8ff; color: #7c3aed; margin-bottom: 0.625rem;">+</div>
+          <p class="font-bold text-dark" style="font-size: 0.8rem; margin: 0 0 0.125rem;">18 more</p>
+          <p class="text-muted" style="font-size: 0.7rem; margin: 0;">on GitHub</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VALUES ===== -->
+  <section class="bg-white" style="padding: 4rem 0; border-top: 1px solid #e2e8f0;">
+    <div class="container">
+      <h2 class="font-bold text-dark" style="font-size: 1.375rem; margin-bottom: 2rem; text-align: center;">How we work</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+        <div class="value-card">
+          <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">🌍</div>
+          <p class="font-bold text-dark" style="font-size: 0.9rem; margin: 0 0 0.375rem;">Remote first</p>
+          <p class="text-muted" style="font-size: 0.825rem; line-height: 1.6; margin: 0;">Distributed across 4 time zones. Async-first culture with deep focus blocks.</p>
+        </div>
+        <div class="value-card">
+          <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">📖</div>
+          <p class="font-bold text-dark" style="font-size: 0.9rem; margin: 0 0 0.375rem;">Open by default</p>
+          <p class="text-muted" style="font-size: 0.825rem; line-height: 1.6; margin: 0;">All code is MIT or GPL. Decisions made in the open on GitHub Discussions.</p>
+        </div>
+        <div class="value-card">
+          <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">🎯</div>
+          <p class="font-bold text-dark" style="font-size: 0.9rem; margin: 0 0 0.375rem;">Scope discipline</p>
+          <p class="text-muted" style="font-size: 0.825rem; line-height: 1.6; margin: 0;">We say no to features. Small, sharp tools that do one thing perfectly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-dark" style="padding: 1.5rem 0; text-align: center;">
+    <span style="color: #64748b; font-size: 0.875rem;">
+      PresetCSS team example ·
+      <a href="../landing-page/index.html" class="text-primary" style="text-decoration: none;">landing page →</a>
+    </span>
+  </footer>
+
+</body>
+</html>

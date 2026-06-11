@@ -1,0 +1,31 @@
+# Newsletter / email capture landing page
+[options]
+output = "dist/style.css"
+
+[colors]
+primary       = "#059669"
+primary-dark  = "#047857"
+primary-light = "#d1fae5"
+dark          = "#111827"
+muted         = "#6b7280"
+light         = "#f0fdf4"
+white         = "#ffffff"
+accent        = "#0284c7"
+accent-light  = "#e0f2fe"
+border        = "#d1d5db"
+
+[breakpoints]
+md = "768px"
+
+[variants]
+colors = ["hover"]
+
+[utilities]
+page-wrap    = "min-height: 100vh; background: #f0fdf4; display: flex; flex-direction: column;"
+container    = "max-width: 640px; margin: 0 auto; padding: 0 1.5rem;"
+hero-wrap    = "padding: 5rem 0 4rem;"
+email-form   = "display: flex; gap: 0.625rem; margin: 2rem 0 1rem; flex-wrap: wrap;"
+email-input  = "flex: 1; min-width: 200px; padding: 0.75rem 1rem; border: 1.5px solid #d1d5db; border-radius: 0.5rem; font-size: 0.9rem; outline: none; background: white;"
+subscribe-btn = "padding: 0.75rem 1.5rem; background: #059669; color: white; border: none; border-radius: 0.5rem; font-weight: 600; font-size: 0.9rem; cursor: pointer; white-space: nowrap;"
+benefit-item = "display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0;"
+social-proof = "display: flex; align-items: center; gap: 0.875rem; background: white; border: 1px solid #d1d5db; border-radius: 0.75rem; padding: 1rem 1.25rem; margin-top: 2.5rem;"
